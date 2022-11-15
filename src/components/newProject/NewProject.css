@@ -1,0 +1,29 @@
+.label{
+padding: 10px;
+border: 2px solid red;
+border-radius: 4px;
+/* width: 25%; */
+display: inline-block;
+}
+.input{
+    padding: 10px;
+    border: 2px solid yellow;
+    border-radius: 4px;
+    /* width: 25%; */
+    display: inline-block;
+}
+.form{
+width: 60%;
+gap: 2px;
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: center;
+}
+.select{
+    padding: 10px;
+    border: 2px solid green;
+    border-radius: 4px;
+    /* width: 25%; */
+    display: inline-block;
+}
