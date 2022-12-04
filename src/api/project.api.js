@@ -21,17 +21,35 @@ import axios from "axios";
 //   params.Goal = newProjectParams.Goal;
 //   params.PersonNameFor = newProjectParams.PersonNameFor;
 // }
-export const addNewProject = async (newProjectParams) => {
+export const addNewProject = async (
+  managerId,
+  dueDate,
+  startDate,
+  kategoryId,
+  quantity,
+  projectName,
+  goal,
+  personNameFor
+) => {
   // const paramsToSend = convertDateToSend(newProjectParams);
   try {
     const { data: project } = await axios.post(
       `${config.api}/Projects/AddProject`,
-      newProjectParams
+      {
+        managerId: managerId,
+        dueDate: dueDate,
+        startDate: startDate,
+        kategoryId: kategoryId,
+        quantity: quantity,
+        projectName: projectName,
+        goal: goal,
+        personNameFor: personNameFor,
+      }
     );
     if (project) {
       return project;
     }
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 };

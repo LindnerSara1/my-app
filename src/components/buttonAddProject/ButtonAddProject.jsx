@@ -1,3 +1,4 @@
+import { Icon } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const ButtonAddProject = () => {
   return (
     <>
       <button variant="primary" onClick={addNewProject}>
-        {/* <i class="bi bi-plus"></i> */}
+      +
       </button>
     </>
   );
