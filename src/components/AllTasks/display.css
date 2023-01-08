@@ -1,0 +1,4 @@
+#displayTask{
+    display: flex;
+    flex-direction: row;
+}

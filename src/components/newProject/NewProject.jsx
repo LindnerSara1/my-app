@@ -22,7 +22,7 @@ import {
   Button,
 } from "@mui/material";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 const NewProject = () => {
   // const { kategories } = useContext(KategoriesContext);
   const { user } = useContext(UserContext);
@@ -49,8 +49,8 @@ const NewProject = () => {
     e.preventDefault();
     const res = await projectApi.addNewProject(
       newProject.managerId,
-     newProject.dueDate.toJSON(),
-     newProject.startDate.toJSON(),
+      newProject.dueDate.toJSON(),
+      newProject.startDate.toJSON(),
       newProject.kategoryId,
       newProject.quantity,
       newProject.projectName,
@@ -65,7 +65,7 @@ const NewProject = () => {
     try {
       const data = await getKategories();
       setKategories(data);
-      console.log(kategories.map(({ kategoryName }) => kategoryName));
+      // console.log(kategories.map(({ kategoryName }) => kategoryName));
     } catch (error) {
       console.error("anable to get kategories", error);
     }
@@ -86,7 +86,7 @@ const NewProject = () => {
       // dispatch(setSelectedToDate(formatDate(newDate)));
     }
   };
-  
+
   return (
     <Box>
       <h1>new Project!</h1>

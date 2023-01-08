@@ -1,26 +1,6 @@
 import { config } from "../../src/config";
 import axios from "axios";
 
-// const params = {
-//   ManagerId: 0,
-//   DueDate: "",
-//   StartDate: "",
-//   KategoryId: "",
-//   Quantity: 0,
-//   ProjectName: "",
-//   Goal: "",
-//   PersonNameFor: "",
-// }
-// const convertDateToSend =(newProjectParams)=>{
-//   params.ManagerId = newProjectParams.ManagerId;
-//   params.DueDate = newProjectParams.DueDate;
-//   params.StartDate = newProjectParams.StartDate;
-//   params.KategoryId = newProjectParams.KategoryId;
-//   params.Quantity = newProjectParams.Quantity;
-//   params.ProjectName = newProjectParams.ProjectName;
-//   params.Goal = newProjectParams.Goal;
-//   params.PersonNameFor = newProjectParams.PersonNameFor;
-// }
 export const addNewProject = async (
   managerId,
   dueDate,
@@ -31,7 +11,6 @@ export const addNewProject = async (
   goal,
   personNameFor
 ) => {
-  // const paramsToSend = convertDateToSend(newProjectParams);
   try {
     const { data: project } = await axios.post(
       `${config.api}/Projects/AddProject`,
@@ -51,5 +30,31 @@ export const addNewProject = async (
     }
   } catch (error) {
     console.log(error);
+  }
+};
+export const getProjectManaged = async (userId) => {
+  try {
+    const { data: project } = await axios.get(
+      `${config.api}/Projects/GetManagedProjects?userId=${userId}`
+    );
+    if (project) {
+      console.log(project);
+      return project;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const getProjectMember = async (userId) => {
+  try {
+    const { data: tasks } = await axios.get(
+      `${config.api}/Projects/GetMemberProjects?userId=${userId}`
+    );
+    if (tasks) {
+      console.log(tasks);
+      return tasks;
+    }
+  } catch (error) {
+    console.error(error);
   }
 };

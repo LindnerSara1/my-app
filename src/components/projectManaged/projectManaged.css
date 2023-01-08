@@ -1,0 +1,9 @@
+#allProjectManaged{
+/* border:2px solid red; */
+}
+#taskHeader{
+    display: inline-flex;
+    flex-direction: row;
+    border:2px solid red;
+    gap: 15px;
+}
