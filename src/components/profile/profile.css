@@ -1,0 +1,42 @@
+#divProfile {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 231px;
+  height: 60px;
+  left: 66px;
+  top: 68px;
+
+  background: #c6d4ff;
+  border: 1px solid #000000;
+  border-radius: 50px;
+}
+#headerProfile {
+  
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0em;
+
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  padding-top: 5.5%;
+}
+#headerProfile div{
+    margin-left: 10px;
+}
+#iconProfile {
+  position: absolute;
+  width: 75px;
+  height: 76px;
+  left: -35px;
+  /* top: 60px; */
+  /* left: 66px; */
+  top: -10px;
+  color: #ffffff;
+  background-color: #308015;
+  border-radius: 50%;
+  border: 3px solid #308015;
+}

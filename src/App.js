@@ -11,14 +11,14 @@ import MyHome from './components/MyHome';
 import Goals from './components/Goals';
 import About from './components/About';
 import Help from './components/Help';
-import Profile from './components/Profile';
+import Profile from './components/profile/Profile';
 import Home from './components/Home';
 import { PublicProjects } from './components/PublicProjects'
 import NewProject from './components/newProject/NewProject';
 import { UserContextProvider } from './context/User.context';
 import AllTasks from './components/AllTasks/AllTasks';
 import AddProjectMember from './components/newProject/addProjectMember/AddProjectMember';
-
+import "@fontsource/heebo"
 function App() {
   return (
     <Router>
