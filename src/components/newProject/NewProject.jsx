@@ -47,7 +47,7 @@ const NewProject = () => {
   ];
   const addProject = async (e) => {
     e.preventDefault();
-    const res = await projectApi.addNewProject(
+    const projectId = await projectApi.addNewProject(
       newProject.managerId,
       newProject.dueDate.toJSON(),
       newProject.startDate.toJSON(),
@@ -57,8 +57,8 @@ const NewProject = () => {
       newProject.goal,
       newProject.personNameFor
     );
-    console.log(res);
-    navigate("/main");
+    console.log(projectId);
+    navigate(`/addProjectMember/${projectId}`);
   };
   const [kategories, setKategories] = useState([{}]);
   const getKategoriesFromServer = async () => {

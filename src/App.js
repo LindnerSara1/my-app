@@ -17,7 +17,7 @@ import { PublicProjects } from './components/PublicProjects'
 import NewProject from './components/newProject/NewProject';
 import { UserContextProvider } from './context/User.context';
 import AllTasks from './components/AllTasks/AllTasks';
-
+import AddProjectMember from './components/newProject/addProjectMember/AddProjectMember';
 
 function App() {
   return (
@@ -45,6 +45,7 @@ function App() {
             <Route path="/Tasks/:projectId" element={<AllTasks />}></Route>
             <Route path="/projects/publicProjects" element={<PublicProjects />}></Route>
             <Route path="/tasks" element={<Tasks />}></Route>
+            <Route path="/addProjectMember/:projectId" element={<AddProjectMember />}></Route> 
           </Routes>
         </div>
       </UserContextProvider>

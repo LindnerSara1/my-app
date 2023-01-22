@@ -12,7 +12,7 @@ export const addNewProject = async (
   personNameFor
 ) => {
   try {
-    const { data: project } = await axios.post(
+    const { data: projectId } = await axios.post(
       `${config.api}/Projects/AddProject`,
       {
         managerId: managerId,
@@ -25,8 +25,8 @@ export const addNewProject = async (
         personNameFor: personNameFor,
       }
     );
-    if (project) {
-      return project;
+    if (projectId) {
+      return projectId;
     }
   } catch (error) {
     console.log(error);
@@ -56,5 +56,22 @@ export const getProjectMember = async (userId) => {
     }
   } catch (error) {
     console.error(error);
+  }
+};
+export const addEmails = async (projectId, emails) => {
+  try {
+    const { data: users } = await axios.post(
+      `${config.api}/Projects/AddUsers`,
+      {
+        projectId: projectId,
+        emails: emails,
+      }
+    );
+    if (users) {
+      console.log(users);
+      return users;
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
