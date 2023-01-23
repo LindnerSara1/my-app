@@ -57,7 +57,7 @@ const NewProject = () => {
       newProject.goal,
       newProject.personNameFor
     );
-    console.log(projectId);
+    // console.log(projectId);
     navigate(`/addProjectMember/${projectId}`);
   };
   const [kategories, setKategories] = useState([{}]);

@@ -38,7 +38,7 @@ export const getProjectManaged = async (userId) => {
       `${config.api}/Projects/GetManagedProjects?userId=${userId}`
     );
     if (project) {
-      console.log(project);
+      // console.log(project);
       return project;
     }
   } catch (error) {
@@ -51,7 +51,7 @@ export const getProjectMember = async (userId) => {
       `${config.api}/Projects/GetMemberProjects?userId=${userId}`
     );
     if (tasks) {
-      console.log(tasks);
+      // console.log(tasks);
       return tasks;
     }
   } catch (error) {
@@ -68,7 +68,7 @@ export const addEmails = async (projectId, emails) => {
       }
     );
     if (users) {
-      console.log(users);
+      // console.log(users);
       return users;
     }
   } catch (error) {

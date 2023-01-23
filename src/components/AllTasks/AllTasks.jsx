@@ -17,7 +17,7 @@ const AllTasks = () => {
       debugger;
       const data = await getAllTasks(projectId);
       setAllTasks(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -40,7 +40,7 @@ const AllTasks = () => {
   return (
     <>
       <h1>all tasks</h1>
-      {console.log(allTasks)}
+      {/* {console.log(allTasks)} */}
       <div id="allTasks">
         <div>{allTasks[0].goal}</div>
         <div>{allTasks[0].personNameFor}</div>

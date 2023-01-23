@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/User.context";
 import { login } from "../../api/login.api";
 import "./Login.css";
+import ConvertToHebrewDate from "../ConvertToHebrewDate";
+import { date } from "yup";
 const Login = () => {
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ const Login = () => {
 
   const innerLogin = (e) => {
     e.preventDefault();
-    console.log("about to sign in", username, password);
+    // console.log("about to sign in", username, password);
     _login(username, password);
   };
 
@@ -99,7 +101,7 @@ const Login = () => {
             <input type="password" placeholder="password"  value={password} onChange={e => setPassword(e.target.value)} /> <br />
             <button type="submit"> login </button><br></br>
         </form>
-        <div>אתה עדייין לא רשום? אתה יכול להתחבר עכשיו!</div>
+        <div>אתה עדיין לא רשום? אתה יכול להתחבר עכשיו!</div>
         <Link to="/signUp">Sign up</Link>
         </>
     </>
