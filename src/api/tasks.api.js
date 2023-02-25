@@ -12,3 +12,14 @@ export const getAllTasks = async (projectId) => {
     console.log("unable to get All tasks", error);
   }
 };
+export const updateTask = async (task) => {
+  const { userId, taskId, taskStatusId } = task;
+  try {
+    const { data: updatedTask } = await axios.put(
+      `${config.api}/Tasks/UpdateTask?userId=${userId}&taskId=${taskId}&taskStatusId=${taskStatusId}`
+    );
+    return updatedTask;
+  } catch (error) {
+    console.log(error);
+  }
+};

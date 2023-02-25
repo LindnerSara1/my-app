@@ -19,25 +19,29 @@ const ProjectMember = () => {
   useEffect(() => {
     getProjectMemberFromServer();
   }, []);
-  const [details, setDetails] = useState([
-    {
-      taskId: 0,
-      userId: 0,
-    },
-  ]);
-  const updateDetails = (detail) => {
-    setDetails([detail]);
+  const [details, setDetails] = useState();
+
+  const updateDetails = (task) => {
+    const index = myProjectMember.findIndex((t) => t.taskId === task.taskId);
+    const copyMyProjectMember = [...myProjectMember];
+    copyMyProjectMember[index] = task;
+    setMyProjectMember(copyMyProjectMember);
   };
   return (
     <>
       {/* {Object.values(details).map((value,i)=>(<div key={i}>taskId:{value.taskId}, userId: {value.userId}</div>))}    */}
-      <h1>משימות ששיכות אלי</h1>
-      <div id="allProjectMember">
-        {myProjectMember?.map((project, index) => (
-          <div value={project} key={index}>
-            <MemberDetails updateDetails={updateDetails} myProject={project} />
-          </div>
-        ))}
+      <div id="boxProjectMember">
+        <h1>המשימות שלי</h1>
+        <div id="allProjectMember">
+          {myProjectMember?.map((project, index) => (
+            <div value={project} key={index}>
+              <MemberDetails
+                updateDetails={updateDetails}
+                myProject={project}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

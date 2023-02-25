@@ -1,22 +1,30 @@
 import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/User.context";
 import { login } from "../../api/login.api";
 import "./Login.css";
-import ConvertToHebrewDate from "../ConvertToHebrewDate";
-import { date } from "yup";
-const Login = () => {
+const Login = (props) => {
+  const {projectId,wantToJoin, setStateWantToJoin} = props;
   const navigate = useNavigate();
-
   const { setUser, user } = useContext(UserContext);
 
-  async function _login(userName, password) {
+  const _login = async(userName, password) => {
     const currentUser = await login(userName, password);
     if (currentUser) {
-      setUser(currentUser);
-      navigate("/main");
+      const set = await !!!setUser(currentUser);
+      // if(wantToJoin){
+        // setStateWantToJoin(0);
+        if(set){
+
+          navigate(-1);
+        }
+        // navigate(`/projects/${projectId}`);
+      // }
+      // else{
+      //   navigate("/main/home");
+      // }
     } else {
-      alert("error to sign in");
+      alert("error to sign in אתה עדיין לא רשום במערכת");
       navigate("/");
     }
   }
@@ -95,15 +103,13 @@ const Login = () => {
       </div> */}
       {/* <div>אתה עדייין לא רשום? אתה יכול להתחבר עכשיו!</div> */}
       {/* <Link to="/signUp">Sign up</Link> */}
-      <>
-        <form onSubmit= {innerLogin}>
-            <input type="text" placeholder="username" value={username} onChange={e => setUsername(e.target.value)}  /> <br />
-            <input type="password" placeholder="password"  value={password} onChange={e => setPassword(e.target.value)} /> <br />
-            <button type="submit"> login </button><br></br>
+        <form id="form" onSubmit= {innerLogin}>
+          <div id="header">?כבר יש לך משתמש קיים</div>
+          <div id="signUpText">התחברות</div>
+            <input id="usernameInput" type="text" placeholder="שם משתמש" value={username} onChange={e => setUsername(e.target.value)}  /> <br />
+            <input id="passwordInput" type="password" placeholder="סיסמה"  value={password} onChange={e => setPassword(e.target.value)} /> <br />
+            <button id="submitButton" type="submit"> התחברות </button><br></br>
         </form>
-        <div>אתה עדיין לא רשום? אתה יכול להתחבר עכשיו!</div>
-        <Link to="/signUp">Sign up</Link>
-        </>
     </>
   );
 };

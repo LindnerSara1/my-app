@@ -1,0 +1,20 @@
+#header {
+  position: absolute;
+  width: 1214px;
+  height: 358px;
+  left: -9px;
+  top: -47px;
+  text-align: center;
+  background: rgba(35, 21, 53, 0.05);
+}
+#allTasks {
+  direction: rtl;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 340px;
+  gap: 2%;
+  background-color: #ffff;
+}

@@ -1,0 +1,45 @@
+#form {
+    /* position: relative; */
+    display: flex;
+    /* width: 574px; */
+    /* height: 299px; */
+    width: 574px;
+    height: 481px;
+    /* left: 20%; */
+    display: inline-block;
+
+    background: rgba(247, 255, 247, 0.7);
+    border-radius: 21px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+#header {
+  /* position: absolute; */
+  /* width: 292px;
+    height: 45px; */
+  /* left: 270px;
+    top: 482px; */
+
+  /* font-family: "Heebo"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+
+  color: #000000;
+}
+#userName #password #verifyPassword #email #phoneNumber{
+  /* box-sizing: border-box; */
+
+  /* position: absolute; */
+  /* width: 396px;
+  height: 40px; */
+  /* left: 825px;
+top: 395px; */
+
+  background: #ffffff;
+  border: 0.5px solid #2757ff;
+  border-radius: 21px;
+}

@@ -1,11 +1,10 @@
 // import Checkbox from '/lib/checkbox/Checkbox';
 
-import React, { useState, useContext } from "react";
-import { KategoriesContext } from "../../context/Kategories.context";
+import React, { useState,useEffect, useContext } from "react";
+// import { KategoriesContext } from "../../context/Kategories.context";
 import { UserContext } from "../../context/User.context";
 import * as projectApi from "../../api/project.api";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { getKategories } from "../../api/kategories.api";
 // import "./NewProject.css";
 import {
@@ -22,7 +21,8 @@ import {
   Button,
 } from "@mui/material";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { useFormik } from "formik";
+import './NewProject.css';
+// import { useFormik } from "formik";
 const NewProject = () => {
   // const { kategories } = useContext(KategoriesContext);
   const { user } = useContext(UserContext);
@@ -88,7 +88,7 @@ const NewProject = () => {
   };
 
   return (
-    <Box>
+    <Box className="Box">
       <h1>new Project!</h1>
       {/* <FormControl class="form"> */}
       <FormControl>
@@ -112,7 +112,7 @@ const NewProject = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <TextField
+        {/* <TextField
           required={true}
           id="outlined-basic"
           label="שם הפרויקט"
@@ -121,7 +121,7 @@ const NewProject = () => {
           onChange={(e) => {
             setNewProject({ ...newProject, projectName: e.target.value });
           }}
-        ></TextField>
+        ></TextField> */}
         {/* <label class="label">שם הפרויקט</label>
         <input
           class="input"

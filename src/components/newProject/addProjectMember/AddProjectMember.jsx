@@ -5,28 +5,13 @@ import "./addProjectMember.css";
 import { useParams } from "react-router-dom";
 import { addEmails } from "../../../api/project.api";
 import { emailDTO } from "../../../Models/emailDTO";
-// import ConvertToString from "./ConvertToString";
-// const addInput=()=>{
-//   setArrInput([
-//     ...arrInput,
-//     <TextField
-//     fullWidth
-//     id="email"
-//     name="email"
-//     label="Email"
-//     value={formik.values.email}
-//     onChange={formik.handleChange}
-//     error={formik.touched.email && Boolean(formik.errors.email)}
-//     helperText={formik.touched.email && formik.errors.email}
-//   />,
-//   ]);
-//   setNewInput(newInput + 1);
-// }
+import { useNavigate } from "react-router-dom";
 
 const AddProjectMember = () => {
-  const projectId = useParams();
+  const { projectId } = useParams();
   const [newInput, setNewInput] = useState(0);
   const [arrInput, setArrInput] = useState([]);
+  const navigate = useNavigate();
 
   const FormSchema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Required"),
@@ -62,22 +47,19 @@ const AddProjectMember = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-const convertToString = (email) =>{
-  return `{"email": ${email}}`;
-}
-const postEmails = async() => {
-  console.log(arrInput);
-  let arrToSend = await arrInput.map((e,i)=>(document.querySelectorAll("#email")[i].value))
-  console.log(arrToSend);
-
-  arrToSend =  arrToSend.map(a=>(convertToString(a)));
-  // arrToSend =  JSON.stringify(arrToSend);
-  // <ConvertToString word={} />
-  console.log(arrToSend);
-  addEmails(projectId, arrToSend);
-}
+  const postEmails = async () => {
+    let arrToSend = await arrInput.map(
+      (e, i) => document.querySelectorAll("#email")[i].value
+    );
+    arrToSend = JSON.stringify(arrToSend);
+    try {
+      await addEmails(projectId, arrToSend);
+      navigate("/main/home");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-
     <div>
       <div>הרישום נקלט בהצלחה!!! </div>
       <div>הכנס חברים לפרויקט</div>

@@ -9,3 +9,22 @@ menu{
      color: gray;
      font-weight: 500;
  }
+ .boxHeader{
+    width: 45vw;
+    height: 200px;
+    margin-left: 100px;
+    margin-top: -250px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+ }
+ .usersInTheSystem{
+    color: rgba(250, 80, 90, 1);
+}
+.openBooks{
+    color: rgba(48, 128, 21, 1);
+}
+ .BooksRead{
+    color: rgba(45, 97, 183, 1);
+ }

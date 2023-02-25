@@ -1,8 +1,41 @@
 /* Importing fonts from Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"); */
+#form {
+  /* position: relative; */
+  width: 574px;
+  height: 299px;
+  /* left: 129px;
+  top: 458px; */
+display: inline-block;
+  background: rgba(247, 255, 247, 0.7);
+  border-radius: 21px;
+}
+#header {
+  /* position: absolute; */
+  /* width: 292px;
+  height: 45px; */
+  /* left: 270px;
+  top: 482px; */
 
+  /* font-family: "Heebo"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+
+  color: #000000;
+}
+/* #signUpText {
+}
+#usernameInput {
+}
+#passwordInput {
+}
+#submitButton {
+} */
 /* Reseting */
-* {
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -57,7 +90,7 @@ body {
     color: #666;
     padding: 10px 15px 10px 10px;
     /* border: 1px solid red; */
-}
+/*}
 
 .wrapper .form-field {
     padding-left: 10px;
@@ -101,4 +134,4 @@ body {
         margin: 30px 20px;
         padding: 40px 15px 15px 15px;
     }
-}
+}*/

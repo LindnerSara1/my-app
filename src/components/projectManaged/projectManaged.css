@@ -1,9 +1,29 @@
-#allProjectManaged{
-/* border:2px solid red; */
+#boxAllProjectManaged h1 {
+  /* position: relative; */
+  width: 70vw;
+  text-align: center;
+  /* margin-top: 15vh; */
+  position: relative;
+  top:18vh;
+  /* direction: rtl; */
 }
-#taskHeader{
-    display: inline-flex;
-    flex-direction: row;
-    border:2px solid red;
-    gap: 15px;
+#allProjectManaged {
+  /* border:2px solid red; */
+  position: relative;
+  top: 19vh;
+  left: 2%;
+  overflow-x: auto;
+  height: 10.5vw;
+  width: 70vw;
+  gap: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  /* margin-right:  40px; */
+}
+#taskHeader {
+  display: inline-flex;
+  flex-direction: row;
+  border: 2px solid red;
+  gap: 15px;
 }

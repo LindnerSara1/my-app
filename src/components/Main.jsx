@@ -11,9 +11,9 @@ const Main = () => {
         //     <br></br>
         //     <Link to="/projects">Your Projects</Link>
         // </div> */}
-      <Header></Header>
+      {/* <Header></Header>
       <ButtonAddProject></ButtonAddProject>
-      <Outlet></Outlet>
+      <Outlet></Outlet> */}
     </>
   );
 };

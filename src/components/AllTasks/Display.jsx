@@ -1,13 +1,25 @@
-import {
-  Table,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import "./display.css";
+import Select from "./select/Select";
+import { useState } from "react";
+import OkSelect from "./OkSelect";
 const Display = (props) => {
-  const task = props.myTask;
+  const { projectId, task, updateTask,allTasks,setAllTasks } = props;
+  const [openSelect, setOpenSelect] = useState(false);
+  const [savedInDb, setSavedInDb] = useState(false);
+  const [isRender,setIsRender] = useState(true);
+  // const updateTaskInDisplay = (task) => {
+  //   console.log("in updateTaskInDisplay task");
+  //   console.log(task);
+  //   const index = allTasks.findIndex((t) => t.taskId === task.taskId);
+  //   const copyAllTasks = [...allTasks];
+  //   copyAllTasks[index].userId = task.userId;
+  //   copyAllTasks[index].taskStatusId = task.taskStatusId;
+  //   console.log("ok");
+  //   setIsRender(task.taskStatusId);
+  //   setAllTasks([...copyAllTasks]);
+  // };
+  const updateInDisplay = (newTask)=>(updateTask(newTask))
+
   
   return (
     <>
@@ -18,15 +30,30 @@ const Display = (props) => {
         <div>{myTask.taskStatus}</div>
         <div>{myTask.dueDate}</div>
       </div> */}
-      <TableContainer sx={{width: 200}}>
-        <Table>
-            <TableHead></TableHead>
-            <TableRow>
-                <TableCell>{task.kategoryValue}</TableCell>
-                <TableCell>{task.taskStatus}</TableCell>
-            </TableRow>
-        </Table>
-    </TableContainer>
+      <div
+        id="singleTask"
+        onClick={() => {
+          console.log("onclick");
+          setOpenSelect(true);
+        }}
+      >
+        {openSelect && (
+          <Select
+            projectId={projectId}
+            task={task}
+            openSelect={openSelect}
+            setOpenSelect={setOpenSelect}
+            savedInDb={savedInDb}
+            setSavedInDb={setSavedInDb}
+            updateInDisplay={updateInDisplay}
+          />
+        )}
+        {savedInDb && (
+          <OkSelect savedInDb={savedInDb} setSavedInDb={setSavedInDb} />
+        )}
+        <div>{task.kategoryValue}</div>
+        <div>{isRender && task.taskStatus}</div>
+      </div>
     </>
   );
 };

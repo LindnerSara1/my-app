@@ -1,4 +1,16 @@
-#displayTask{
-    display: flex;
-    flex-direction: row;
+    /* #displayTask{
+        display: flex;
+        flex-direction: row;
+    } */
+#singleTask{
+    
+/* position: absolute; */
+width: 187px;
+height: 70px;
+/* left: 869px;
+top: 341px; */
+
+background: #D9F3DC;
+border-radius: 21px;
+filter: drop-shadow(0px 4px 10px rgba(53, 72, 139, 0.41));
 }

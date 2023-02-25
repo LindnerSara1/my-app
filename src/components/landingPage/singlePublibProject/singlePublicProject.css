@@ -1,0 +1,71 @@
+#iconProfile {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  /* left: 55px; */
+
+  /* left: 66px; */
+  /* top: -15px; */
+  color: #ffffff;
+  background-color: #2d61b7;
+  border-radius: 50%;
+  border: 2px solid #2d61b7;
+}
+#buttonToJion {
+  /* text-align: center; */
+  /* z-index: 2; */
+  display: flex;
+  flex-direction: row;
+  background: #2d61b7;
+  box-shadow: 0px 4px 20px rgb(40 59 154 / 25%);
+  border-radius: 20px;
+  /* align-items: start; */
+  position: relative;
+  /* right: 150px; */
+  /* bottom: 10px; */
+  /* top: 45px; */
+  left:-150px;
+  /* bottom: -60px;  */
+  
+  width: 108px;
+  height: 34px;
+  /* padding-top: 1px; */
+  /* margin-left: ; */
+}
+#boxProject {
+  /* position: relative; */
+
+  width: 279px;
+  height: 148px;
+  top: 502px;
+  left: 1086px;
+  border-radius: 21px;
+  border-color: gray;
+  border-style: none;
+  direction: rtl;
+  display: flex;
+  /* background-color: #d7d1d1; */
+  background: #f3f6ff;
+  font-style: normal;
+  font-size: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  font-size: 16px;
+  line-height: 18px;
+  box-shadow: 0px 4px 20px rgba(40, 59, 154, 0.25);
+}
+.textJoin {
+  color: white;
+  font-size: 16px;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+#projectHeader {
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 7px;
+  font-size: 22px;
+}
