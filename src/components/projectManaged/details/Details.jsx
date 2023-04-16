@@ -14,14 +14,14 @@ const Details = ({ updateDetails, myProject, i }) => {
   useEffect(() => {
     convertDate();
   }, []);
+   const sendMessage=()=>{
+      navigate(`/projects/addNewMessage/${myProject.projectId}`);
+    }
    if(isLoading){
     return <span>...Loading</span>
    }
-   const sendMessage=()=>{
-      
-      navigate(`/projects/addNewMessage/${myProject.projectId}`);
-    }
-  return (
+  else {
+   return (
     <div>
      <div id="boxProjectManaged">
         {/* <button onClick={displayDetails}>{myProject.projectName}</button> */}
@@ -40,5 +40,5 @@ const Details = ({ updateDetails, myProject, i }) => {
       </div>
     </div>
   );
-};
+}};
 export default Details;

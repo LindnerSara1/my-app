@@ -2,11 +2,16 @@ import "./display.css";
 import Select from "./select/Select";
 import { useState } from "react";
 import OkSelect from "./OkSelect";
+import {
+  NEW_TASK,
+  TASKS_CAUGHT,
+  TASKS_DONE,
+} from "../../constant/colorConstant";
 const Display = (props) => {
-  const { projectId, task, updateTask,allTasks,setAllTasks } = props;
+  const { projectId, task, updateTask, allTasks, setAllTasks } = props;
   const [openSelect, setOpenSelect] = useState(false);
   const [savedInDb, setSavedInDb] = useState(false);
-  const [isRender,setIsRender] = useState(true);
+  const [isRender, setIsRender] = useState(true);
   // const updateTaskInDisplay = (task) => {
   //   console.log("in updateTaskInDisplay task");
   //   console.log(task);
@@ -18,9 +23,13 @@ const Display = (props) => {
   //   setIsRender(task.taskStatusId);
   //   setAllTasks([...copyAllTasks]);
   // };
-  const updateInDisplay = (newTask)=>(updateTask(newTask))
+  const updateInDisplay = (newTask) => updateTask(newTask);
 
-  
+  const typeColor = {
+    1:NEW_TASK,
+    2: TASKS_CAUGHT,
+    3: TASKS_DONE,
+  };
   return (
     <>
       {/* <div id="#displayTask">
@@ -33,9 +42,9 @@ const Display = (props) => {
       <div
         id="singleTask"
         onClick={() => {
-          console.log("onclick");
-          setOpenSelect(true);
+          if(task.taskStatusId == 1 ){setOpenSelect(true);}
         }}
+        style={{ backgroundColor: typeColor[task.taskStatusId],padding:3,borderRadius: 21}}
       >
         {openSelect && (
           <Select

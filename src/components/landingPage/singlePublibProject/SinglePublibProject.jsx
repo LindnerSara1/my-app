@@ -6,27 +6,33 @@ import iconProfile from "../../../Icons/profile.png";
 
 import "./singlePublicProject.css";
 const SinglePublicProject = ({ updateDetails, myProject, i }) => {
+  const dd = myProject.dueDate;
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(1);
+  const [isLoading, setIsLoading] = useState(0);
   const [dueDate, setDueDate] = useState();
 
   const convertDate = async () => {
+    console.log(myProject.dueDate + myProject.personNameFor + myProject.goal);
     const d = await convertToHebrewDate(myProject.dueDate);
-    const set = await !!!setDueDate(d);
-    if(set){
-      setIsLoading(0);
-    }  
+    console.log(d);
+    setDueDate(d);
+    // const set = await !!!setDueDate(d);
+    // if(set){
+    //   // setIsLoading(0);
+    // }  
   };
   useEffect(() => {
+    // setIsLoading(1);
     convertDate();
+    setIsLoading(1);
   }, []);
   const toJion = () => {
     navigate(`/projects/${myProject.projectId}`);
   };
-  if (isLoading) {
-    return <span>...Loading</span>;
-  }
-  else{
+  // if (isLoading) {
+  //   return <div>...Loading</div>;
+  // }
+  // if (!isLoading){
     return (
       <>
         <div id="boxProject">
@@ -38,7 +44,7 @@ const SinglePublicProject = ({ updateDetails, myProject, i }) => {
             {/* <div>{myProject.projectId}</div> */}
           </div>
           {/* <div> */}
-          <div>{dueDate}</div>
+          {isLoading ? <div>{dueDate}</div>:">"}
           {/* <div>{<ConvertToHebrewDate date={myProject.dueDate}/>}</div> */}
           <div>{myProject.taskStatus}</div>
   
@@ -52,5 +58,5 @@ const SinglePublicProject = ({ updateDetails, myProject, i }) => {
     );
   }
 
-};
+// }
 export default SinglePublicProject;

@@ -9,16 +9,17 @@ menu{
      color: gray;
      font-weight: 500;
  }
- .boxHeader{
+ .boxHeader {
     width: 45vw;
-    height: 200px;
+    height: 180px;
     margin-left: 100px;
-    margin-top: -250px;
+    margin-top: -265px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
- }
+    
+}
  .usersInTheSystem{
     color: rgba(250, 80, 90, 1);
 }

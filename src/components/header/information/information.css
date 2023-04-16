@@ -4,6 +4,7 @@
     flex-direction: column;
     text-align: center;
     position: relative;
+    top: -3vw;
     right: -55%;
     direction: rtl;
 }
@@ -12,14 +13,14 @@
 #boxUserInUse,
 #boxOpenedBook,
 #boxClosedBook {
-    margin-bottom: 15%;
+    margin-bottom: 10%;
 }
 .infoUsersInUse,
 .infoOpenedBook,
 .infoClosedBook {
   font-style: normal;
   font-weight: 900;
-  font-size: 42px;
+  font-size: 35px;
   line-height: 43%;
   text-align: center;
 }
