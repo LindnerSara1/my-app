@@ -6,6 +6,7 @@ import ProjectMember from "./projectMember/ProjectMember";
 import "./myHome.css";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/User.context";
+import Header from "./header/Header";
 const MyHome = () => {
   const navigate = useNavigate();
   const { setUser, user } = useContext(UserContext);
@@ -18,7 +19,7 @@ const MyHome = () => {
   return (
     <>
       <div id="boxOfContentInMyHome">
-        <Profile />
+        <Header />
         <div id="body">
           <ProjectManaged />
           <ProjectInvited />

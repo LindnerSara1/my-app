@@ -4,9 +4,10 @@ import {
   toJewishDate,
 } from "jewish-date";
 const convertToHebrewDate = (date) => {
-  console.log(date+"convertToHebrewDate");
+
   const newdate = new Date(Date.parse(date));
   const jewishDate = toJewishDate(newdate);
+  console.log(newdate,jewishDate)
   const jewishDateInHebrewStr = formatJewishDateInHebrew(jewishDate);
   return jewishDateInHebrewStr;
   // console.log(date);

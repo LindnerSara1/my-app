@@ -7,6 +7,10 @@ import Profile from "../profile/Profile";
 import { UserContext } from "../../context/User.context";
 import "./allTasks.css";
 import Login from "../login/Login";
+import logo from "../../Image/Asset 1שותפים 2.svg";
+import ProjectMember from "../projectMember/ProjectMember";
+import ButtonAddProject from "../buttonAddProject/ButtonAddProject";
+import ButtonAddProjectMemebers from "../buttonAddProjectMembers/ButtonAddProjectMembers";
 const AllTasks = () => {
   const { projectId } = useParams();
   const [allTasks, setAllTasks] = useState([{}]);
@@ -49,13 +53,27 @@ const AllTasks = () => {
   // if(!wantToJoin){
   return (
     <>
-      <Profile />
-      <div id="header">
-        {/* <h1>all tasks</h1> */}
-        <div>{allTasks[0].goal}</div>
-        <div>{allTasks[0].personNameFor}</div>
-        <div>תאריך יעד {dueDate}</div>
-
+      <div id="HeaderInAllTasks">
+        <div id="HeaderLogo">
+          <img id="Logo" src={logo}></img>
+          <Profile />
+          <div id="headerContent">
+            {/* <h1>all tasks</h1> */}
+            <div id="gaol">{allTasks[0].goal}</div>
+            <div id="personNameFor">{allTasks[0].personNameFor}</div>
+            <div id="dueDate">תאריך יעד {dueDate}</div>
+          </div>
+          <div id="explainOnColor">
+            <div id="caught">
+              <span class="caughtCircle"></span>
+              <span class="tasksCaught">מטלות שנתפסו</span>
+            </div>
+            <div id="done">
+              <span class="doneCircle"></span>
+              <span class="tasksDone">מטלות שבוצעו</span>
+            </div>
+          </div>
+        </div>
         {/* <div>
             <div>קטגוריה</div>
             <div>סטטוס המשימה</div>
@@ -74,6 +92,15 @@ const AllTasks = () => {
           ))}
         </div>
       </div>
+      <div id="bottomPartInAllTAsks"> <div id="buttonAddMemebers">
+        <ButtonAddProjectMemebers />
+      </div>
+        <div id="buttonAddNewProject"></div>
+        <ButtonAddProject />
+      </div>
+     
+
+      <ProjectMember />
     </>
   );
   // }

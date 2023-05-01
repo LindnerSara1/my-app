@@ -5,12 +5,14 @@ import swal from "sweetalert";
 import { updateTask } from "../../../api/tasks.api";
 import "./memberDetails.css";
 import convertToHebrewDate from "../../ConvertToHebrewDate";
+import DoneIcon from "@mui/icons-material/Done";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
 const MemberDetails = (props) => {
   const { updateDetails, myProject, i } = props;
   const [savedInDb, setSavedInDb] = useState();
   const [dueDate, setDueDate] = useState();
-  
+
   const convertDate = async () => {
     const d = await convertToHebrewDate(myProject.dueDate);
     setDueDate(d);
@@ -50,17 +52,30 @@ const MemberDetails = (props) => {
   };
   return (
     <>
-      <div id="allDetailsTask">
-        <div id="taskHeader">
+      <div id="allDetailsTaskMD">
+        <div id="taskHeaderInProjectMemberMD">
           {/* <button onClick={displayDetails}>{myProject.k}</button> */}
-          <div>{myProject.kategoryValue}</div>
-          <div>{myProject.goal}</div>
-          <div>{myProject.personNameFor}</div>
+          <div id="#theKategoryMD">{myProject.kategoryValue}</div>
+          <div id="theGoalAndThePersonNameForMD">
+            <div id="#theGoalMD">{myProject.goal}</div>
+            <div id="#thePersonNameForMD">{myProject.personNameFor}</div>
+          </div>
         </div>
         <div>
-          <div>{dueDate}</div>
+          <div id="theDueDateMD">{dueDate}</div>
           <div>{myProject.taskStatus}</div>
-          <button onClick={isDone}>בוצע</button>
+          <div
+            id="buttonIsDoneMD"
+            onClick={() => {
+              myProject.taskStatusId == 2 && isDone();
+            }}
+          >
+            <div id="iconV">
+              {/* <RadioButtonUncheckedIcon/> */}
+              {myProject.taskStatusId == 3 && <DoneIcon />}
+            </div>
+            <div className="textIsDone">בוצע</div>
+          </div>
           {/* <Link to={`Tasks/${projectId}`}>לצפייה בכל המשימות של הפרויקט</Link> */}
           <button onClick={allTasks}>לצפייה בכל המשימות של הפרויקט</button>
         </div>

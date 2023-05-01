@@ -5,7 +5,7 @@ import Details from "./details/Details";
 import "./projectManaged.css";
 const ProjectManaged = () => {
   const { user, setUser } = useContext(UserContext);
-  const [myProjectManaged, setMyProjectManaged] = useState([{}]);
+  const [myProjectManaged, setMyProjectManaged] = useState([]);
   const getProjectManagedFromServer = async () => {
     try {
       const data = await getProjectManaged(user?.userId);
@@ -32,8 +32,8 @@ const ProjectManaged = () => {
       <div id="boxAllProjectManaged">
         <h1>פרויקטים בניהולי</h1>
         <div id="allProjectManaged">
-          {myProjectManaged?.map((project, index) => (
-            <div value={project} key={index}>
+          {myProjectManaged.length > 0 && myProjectManaged.map((project, index) => (
+            <div value={project} key={+index}>
               <Details updateDetails={updateDetails} myProject={project} />
             </div>
           ))}

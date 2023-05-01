@@ -1,74 +1,85 @@
-#upperPart {
+/* #upperPart {
   background: rgb(255, 255, 255);
-  /* background-size: 40%; */
+  
   position: fixed;
   display: block;
   width: 100vw;
-  height: 45vh;
+  height: 43vh;
   z-index: 1;
-}
-#Logo{
+  padding-top: 4%;
+  padding-right: 2%;
+  padding-left: 2%;
+} */
+/* #Logo {
   margin-left: 47%;
-  margin-top: 2.5%;
-}
+  
+} */
 #aboutUs {
   direction: rtl;
-  width: 250px;
-  height: 250px;
-  position: fixed;
-  left: 1230px;
-  top: 7%;
+  width: 235px;
+  height: 230px;
+  position: relative;
+  z-index: 3;
+  left: 1100px;
+  top: -34vh;
   background: #231535;
   border: 1px solid #000000;
   border-radius: 21px;
   color: #ffffff;
+  padding: 20px;
   /* padding-top: 10px; */
 }
 #aboutHeader {
-  font-size: 36px;
-  text-align: center;
-  line-height: 53px;
-  margin-right: 35px;
+  /* font-size: 36px; */
+  /* text-align: center; */
+  /* line-height: 53px; */
+  /* margin-right: 25px;
+  margin-top: 25px; */
+  /* margin: 25px; */
+  margin-bottom: -15px;
 }
 
 #aboutContent {
-  font-size: 18px;
-  width: 305px;
-  line-height: 29px;
-  text-align: right;
-  margin-right: 20px;
-  margin-left: 20px;
+  /* margin: 25px; */
+  font-size: 16px;
+  width: 250px;
+  line-height: 27px;
+  /* text-align: right; */
+  /* margin-right: 20px;
+  margin-left: 20px; */
 }
 #bottomPart {
   background: rgba(35, 21, 53, 0.05);
-  position: relative; 
-  top: 45vh;
+  position: relative;
+  top: 49vh;
   /* height: 55vh; */
 }
 #headerPublicProjects {
   font-weight: 400;
-  font-size: 32px;
-  line-height: 53px;
+  font-size: 30px;
+  /* line-height: 53px; */
   position: fixed;
-  left: 630px;
-  top: 320px;
+  /* left: 43vw; */
+  top: 43vh;
   z-index: 2;
+  opacity: 1;
+  background: rgb(234 232 236);
+  width: 100vw;
+  text-align: center;
 }
-.buttonAddProject{
-
-
-/* width: 341px;
+/* .buttonAddProject { */
+  /* width: 341px;
 height: 67px; */
-/* left: 45px;
+  /* left: 45px;
 top: 919px; */
-color: #ffffff;
-display: inline-block;
-background: #2D61B7;
-box-shadow: 0px 4px 20px rgba(40, 59, 154, 0.25);
-border-radius: 33.5px;
-}
-#divButtonAddProject{
-   position: fixed;
-   z-index: 5; 
-   background-color: red;
-}
+  /* color: #ffffff;
+  display: inline-block;
+  background: #2d61b7;
+  box-shadow: 0px 4px 20px rgba(40, 59, 154, 0.25);
+  border-radius: 33.5px;
+} */
+/* #divButtonAddProject {
+  position: fixed;
+  z-index: 5;
+  background-color: red;
+} */

@@ -4,7 +4,7 @@ import { getPublicProject } from "../../../api/project.api";
 import "./publicProjects.css";
 import { GlobalStyles } from "@mui/material";
 export const PublicProjects = () => {
-  const [publicProject, setPublicProject] = useState([{}]);
+  const [publicProject, setPublicProject] = useState([]);
 
   const getPublicProjectFromServer = async () => {
     try {
@@ -30,8 +30,9 @@ export const PublicProjects = () => {
   return (
     <>
       <div id="boxPublicProject">
+      {/* <div id="headerPublicProjects">פרויקטים ציבוריים</div> */}
         <div id="listPublicProject">
-          {publicProject?.map((project, index) => (
+          {publicProject.length > 0 && publicProject.map((project, index) => (
             <div value={project} key={+index}>
               <SinglePublicProject
                 updateDetails={updateDetails}

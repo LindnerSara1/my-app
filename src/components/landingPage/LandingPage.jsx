@@ -2,15 +2,12 @@ import { PublicProjects } from "./publicProjects/PublicProjects";
 import Profile from "../profile/Profile";
 import "./LandingPage.css";
 import Header from "../header/Header";
-import logo from "../../Image/Asset 1שותפים 2.svg";
 import logoWhite from "../../Image/Asset 1שותפים 3.svg";
-import Information from "../header/information/Information";
+
 const LandingPage = () => {
   return (
     <>
       <div id="upperPart">
-      <img id="Logo" src={logo}></img>
-        <Profile />
         <Header />
         <div id="aboutUs">
           <img id="aboutHeader" src={logoWhite}></img>
@@ -24,9 +21,9 @@ const LandingPage = () => {
       <div id="bottomPart">
         <div id="headerPublicProjects">פרויקטים ציבוריים</div>
         <PublicProjects />
-        <div id="divButtonAddProject">
+        {/* <div id="divButtonAddProject">
           <button className="buttonAddProject">פרויקט חדש</button>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -4,22 +4,26 @@
   text-align: center;
   /* margin-top: 15vh; */
   position: relative;
-  top:18vh;
+  margin-left: 30px;
+  font-size: 27px;
+  top:1vh;
+  /* justify-content: center; */
   /* direction: rtl; */
 }
 #allProjectManaged {
-  /* border:2px solid red; */
   position: relative;
-  top: 19vh;
-  left: 2%;
+  top: -2vh;
+  /* left: 2%; */
   overflow-x: auto;
-  height: 10.5vw;
-  width: 70vw;
+  height: 190px;
+  width: 74.5vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: '#ffffff';
   gap: 20px;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: nowrap;
-  /* margin-right:  40px; */
 }
 #taskHeader {
   display: inline-flex;

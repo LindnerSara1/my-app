@@ -1,13 +1,50 @@
-#projectManagedHeader {
-  /* top: 502px;
-  left: 1086px; */
-}
 #boxProjectManaged {
-  width: 249px;
-  height: 128px;
+  padding: 11px;
+  width: 250px;
+  /* width: 283px; */
+  height: 145px;
+  top: 502px;
   border-radius: 21px;
   border-color: gray;
   border-style: none;
-  background-color:  #F3F6FF;
-  box-shadow: 0px 4px 2px rgba(40, 59, 154, 0.25);
+  direction: rtl;
+  display: flex;
+  background: #f3f6ff;
+  font-style: normal;
+  font-size: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 16px;
+  box-shadow: -1px 2px 6px rgba(40, 59, 154, 0.25);
+  /* width: 319px;
+height: 178px; */
+}
+#projectManagedHeader {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  line-height: 25px;
+  flex-wrap: nowrap;
+}
+#theGoal {
+  font-size: 19px;
+  margin-left: 5px;
+}
+#theKategory {
+  font-size: 17px;
+}
+#thePersonNameFor {
+  font-size: 19px;
+}
+#theDueDate {
+  font-size: 14px;
+  font-weight: 900;
+  color: rgba(250, 80, 90, 1);
+}
+#theGoalAndThePersonNameFor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

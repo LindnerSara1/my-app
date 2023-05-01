@@ -1,5 +1,23 @@
-.bi bi-plus {
-  color: white;
-  width: 15px;
-  height: 15px;
+
+#buttonAddProject {
+  width: 150px;
+  height: 30px;
+  background: #2D61B7;
+  box-shadow: 0px 4px 20px rgba(40, 59, 154, 0.25);
+  border-radius: 33.5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  flex-direction: row-reverse;
+  /* text-align: center; */
+  color: #ffffff;
+  /* font-size: 18px; */
+}
+.IconNewProjects{
+font-size: 34px;
+padding-left: 3px;
+}
+.wordsNewProjects{
+
 }

@@ -12,11 +12,10 @@ const Login = (props) => {
     const currentUser = await login(userName, password);
     if (currentUser) {
       const set = await !!!setUser(currentUser);
-      // if(wantToJoin){
-        // setStateWantToJoin(0);
+      // // if(wantToJoin){
+      //   // setStateWantToJoin(0);
         if(set){
-
-          navigate(-1);
+          navigate(-2);
         }
         // navigate(`/projects/${projectId}`);
       // }

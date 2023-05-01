@@ -61,7 +61,7 @@ const AddProjectMember = () => {
   };
   return (
     <div>
-      <div>הרישום נקלט בהצלחה!!! </div>
+      {/* <div>הרישום נקלט בהצלחה!!! </div> */}
       <div>הכנס חברים לפרויקט</div>
       {/* <form onSubmit={handleSubmit}> */}
       <form>

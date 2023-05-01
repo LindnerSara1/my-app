@@ -6,7 +6,7 @@ import "./projectMember.css";
 
 const ProjectMember = () => {
   const { setUser, user } = useContext(UserContext);
-  const [myProjectMember, setMyProjectMember] = useState([{}]);
+  const [myProjectMember, setMyProjectMember] = useState([]);
   const getProjectMemberFromServer = async () => {
     try {
       const data = await getProjectMember(user?.userId);
@@ -33,8 +33,8 @@ const ProjectMember = () => {
       <div id="boxProjectMember">
         <h1>המשימות שלי</h1>
         <div id="allProjectMember">
-          {myProjectMember?.map((project, index) => (
-            <div value={project} key={index}>
+          {myProjectMember.length > 0 && myProjectMember.map((project, index) => (
+            <div value={project} key={+index}>
               <MemberDetails
                 updateDetails={updateDetails}
                 myProject={project}

@@ -6,7 +6,7 @@ import SinglePublicProject from "../landingPage/singlePublibProject/SinglePublib
 import "./ProjectInvited.css";
 const ProjectInvited = () => {
   const { user, setUser } = useContext(UserContext);
-  const [myProjectInvited, setMyProjectInvited] = useState([{}]);
+  const [myProjectInvited, setMyProjectInvited] = useState([]);
   const getProjectInvitedFromServer = async () => {
     try {
       const data = await getProjectInvited(user?.userId);
@@ -33,8 +33,8 @@ const ProjectInvited = () => {
       <div id="boxAllProjectInvited">
         <h1>הוזמנת להשתתף</h1>
         <div id="allProjectInvited">
-          {myProjectInvited?.map((project, index) => (
-            <div value={project} key={index}>
+          {myProjectInvited.length > 0 && myProjectInvited.map((project, index) => (
+            <div value={project} key={+index}>
               <SinglePublicProject
                 updateDetails={updateDetails}
                 myProject={project}

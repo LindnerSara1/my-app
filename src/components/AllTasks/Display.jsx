@@ -1,14 +1,16 @@
 import "./display.css";
 import Select from "./select/Select";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import OkSelect from "./OkSelect";
 import {
   NEW_TASK,
   TASKS_CAUGHT,
   TASKS_DONE,
 } from "../../constant/colorConstant";
+import { UserContext } from "../../context/User.context";
 const Display = (props) => {
   const { projectId, task, updateTask, allTasks, setAllTasks } = props;
+  const { setUser, user } = useContext(UserContext);
   const [openSelect, setOpenSelect] = useState(false);
   const [savedInDb, setSavedInDb] = useState(false);
   const [isRender, setIsRender] = useState(true);
@@ -26,7 +28,7 @@ const Display = (props) => {
   const updateInDisplay = (newTask) => updateTask(newTask);
 
   const typeColor = {
-    1:NEW_TASK,
+    1: NEW_TASK,
     2: TASKS_CAUGHT,
     3: TASKS_DONE,
   };
@@ -60,8 +62,9 @@ const Display = (props) => {
         {savedInDb && (
           <OkSelect savedInDb={savedInDb} setSavedInDb={setSavedInDb} />
         )}
-        <div>{task.kategoryValue}</div>
-        <div>{isRender && task.taskStatus}</div>
+        <div id="taskKategory">{task.kategoryValue}</div>
+        {user.userId == task.mangerId && <div id="taskStatus">{isRender && task.userName}</div>}
+        {/* <div id="taskStatus">{isRender && task.taskStatus}</div> */}
       </div>
     </>
   );
