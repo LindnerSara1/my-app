@@ -23,7 +23,7 @@ const Login = (props) => {
       //   navigate("/main/home");
       // }
     } else {
-      alert("error to sign in אתה עדיין לא רשום במערכת");
+      alert("אתה עדיין לא רשום במערכת");
       navigate("/");
     }
   }
@@ -39,39 +39,39 @@ const Login = (props) => {
 
   return (
     <>
-      {/* <div class="wrapper">
-        <div class="logo">
+      {/* <div className="wrapper">
+        <div className="logo">
             <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt=""></img>
         </div>
-        <div class="text-center mt-4 name">
+        <div className="text-center mt-4 name">
             S & Y
         </div>
-        <form class="p-3 mt-3">
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
+        <form className="p-3 mt-3">
+            <div className="form-field d-flex align-items-center">
+                <span className="far fa-user"></span>
                 <input type="text" name="userName" id="userName" placeholder="Username"></input>
             </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
+            <div className="form-field d-flex align-items-center">
+                <span className="fas fa-key"></span>
                 <input type="password" name="password" id="pwd" placeholder="Password"></input>
             </div>
-            <button class="btn mt-3">Login</button>
+            <button className="btn mt-3">Login</button>
         </form>
-        <div class="text-center fs-6">
+        <div className="text-center fs-6">
             <a href="#">Forget password?</a> or <button onClick={navigate("/signUp")}>Sign up</a>
         </div>
     </div> */}
-      {/* <div class="wrapper">
-        <div class="logo">
+      {/* <div className="wrapper">
+        <div className="logo">
           <img
             src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png"
             alt=""
           ></img>
         </div>
-        <div class="text-center mt-4 name">S & Y</div>
-        <form class="p-3 mt-3" onSubmit={innerLogin}>
-          <div class="form-field d-flex align-items-center">
-            <span class="far fa-user"></span>
+        <div className="text-center mt-4 name">S & Y</div>
+        <form className="p-3 mt-3" onSubmit={innerLogin}>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
             <input
               id="userName"
               type="text"
@@ -80,8 +80,8 @@ const Login = (props) => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div class="form-field d-flex align-items-center">
-            <span class="fas fa-key"></span>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
             <input
               id="pwd"
               type="password"
@@ -90,12 +90,12 @@ const Login = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button class="btn mt-3" type="submit">
+          <button className="btn mt-3" type="submit">
             {" "}
             Login{" "}
           </button>
         </form>
-        <div class="text-center fs-6">
+        <div className="text-center fs-6">
           <a href="#">Forget password?</a> or{" "}
           <button onClick={navigate("/signUp")}>Sign up</button>
         </div>

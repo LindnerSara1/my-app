@@ -21,6 +21,7 @@ import AddProjectMember from "./components/newProject/addProjectMember/AddProjec
 import "@fontsource/heebo";
 import Message from "./components/messages/Message";
 import LandingPage from "./components/landingPage/LandingPage";
+import HamburgerMenu from "./components/header/menu/hamburgerMenu/HamburgerMenu";
 function App() {
   return (
     <Router>
@@ -28,8 +29,8 @@ function App() {
         <div id="App">
           <Routes>
             {/* <Route path="/" element={<LandingPage />}></Route> */}
-            <Route path="/" element={<LandingPage />}></Route>
-
+            {/* <Route path="/" element={<LandingPage />}></Route> */}
+            <Route path="/" element={<HamburgerMenu />}></Route>
             {/* <Route path=":param" element={<Home />}></Route> */}
 
             <Route path="login" element={<Login />}></Route>

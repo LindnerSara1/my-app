@@ -13,15 +13,19 @@ import ButtonAddProject from "../buttonAddProject/ButtonAddProject";
 import ButtonAddProjectMemebers from "../buttonAddProjectMembers/ButtonAddProjectMembers";
 const AllTasks = () => {
   const { projectId } = useParams();
-  const [allTasks, setAllTasks] = useState([{}]);
+  const [allTasks, setAllTasks] = useState([]);
   const [dueDate, setDueDate] = useState();
   const [wantToJoin, setWantToJoin] = useState(0);
+  const [isLoading, setIsLoading] = useState(0);
+  const [taskToInsert, setTaskToInsert] = useState();
   const { setUser, user } = useContext(UserContext);
   const navigate = useNavigate();
+
   const getAllTasksFromServer = async () => {
     try {
       const data = await getAllTasks(projectId);
       setAllTasks(data);
+      // convertDate();
     } catch (error) {
       console.error(error);
     }
@@ -33,14 +37,16 @@ const AllTasks = () => {
   };
   useEffect(() => {
     if (!user) {
-      // setStateWantToJoin(1);
       navigate("/login");
     } else {
       getAllTasksFromServer();
+    }
+  }, [projectId]);
+  useEffect(() => {
+    if (allTasks.length > 0) {
       convertDate();
     }
-  }, []);
-
+  }, [allTasks]);
   const updateTask = (task) => {
     const index = allTasks.findIndex((t) => t.taskId === task.taskId);
     const copyAllTasks = [...allTasks];
@@ -50,27 +56,42 @@ const AllTasks = () => {
   const setStateWantToJoin = (boolean) => {
     setWantToJoin(boolean);
   };
-  // if(!wantToJoin){
+  const updateInListToDo = (newTask) => {
+    setTaskToInsert(newTask);
+    // setTaskToInsert(true);
+  };
+  const updateTaskStatus =(task)=>{
+    const index = allTasks.findIndex(t=>t.taskId === task.taskId);
+    const copyAllTasks = [...allTasks];
+    copyAllTasks[index] = task;
+    setAllTasks(copyAllTasks);
+  }
   return (
     <>
       <div id="HeaderInAllTasks">
         <div id="HeaderLogo">
           <img id="Logo" src={logo}></img>
           <Profile />
-          <div id="headerContent">
-            {/* <h1>all tasks</h1> */}
-            <div id="gaol">{allTasks[0].goal}</div>
-            <div id="personNameFor">{allTasks[0].personNameFor}</div>
-            <div id="dueDate">תאריך יעד {dueDate}</div>
-          </div>
+          {allTasks.length > 0 && (
+            <div id="headerContent">
+              {/* <h1>all tasks</h1> */}
+              {allTasks.length > 0 && <div id="gaol">{allTasks[0].goal}</div>}
+              {allTasks.length > 0 && (
+                <div id="personNameFor">{allTasks[0].personNameFor}</div>
+              )}
+              {allTasks.length > 0 && (
+                <div id="dueDate">תאריך יעד {dueDate}</div>
+              )}
+            </div>
+          )}
           <div id="explainOnColor">
             <div id="caught">
-              <span class="caughtCircle"></span>
-              <span class="tasksCaught">מטלות שנתפסו</span>
+              <span className="caughtCircle"></span>
+              <span className="tasksCaught">מטלות שנתפסו</span>
             </div>
             <div id="done">
-              <span class="doneCircle"></span>
-              <span class="tasksDone">מטלות שבוצעו</span>
+              <span className="doneCircle"></span>
+              <span className="tasksDone">מטלות שבוצעו</span>
             </div>
           </div>
         </div>
@@ -79,28 +100,31 @@ const AllTasks = () => {
             <div>סטטוס המשימה</div>
         </div> */}
         <div id="allTasks">
-          {allTasks?.map((task, index) => (
-            <div value={task} key={+index}>
-              <Display
-                projectId={projectId}
-                task={task}
-                updateTask={updateTask}
-                allTasks={allTasks}
-                setAllTasks={setAllTasks}
-              />
-            </div>
-          ))}
+          {allTasks.length > 0 &&
+            allTasks.map((task, index) => (
+              <div value={task} key={+index}>
+                <Display
+                  projectId={projectId}
+                  task={task}
+                  updateTask={updateTask}
+                  allTasks={allTasks}
+                  setAllTasks={setAllTasks}
+                  updateInListToDo={updateInListToDo}
+                />
+              </div>
+            ))}
         </div>
       </div>
-      <div id="bottomPartInAllTAsks"> <div id="buttonAddMemebers">
-        <ButtonAddProjectMemebers />
-      </div>
+      <div id="bottomPartInAllTAsks">
+        {" "}
+        <div id="buttonAddMemebers">
+          <ButtonAddProjectMemebers />
+        </div>
         <div id="buttonAddNewProject"></div>
         <ButtonAddProject />
       </div>
-     
 
-      <ProjectMember />
+      <ProjectMember taskToInsert={taskToInsert} updateTaskStatus={updateTaskStatus}/>
     </>
   );
   // }

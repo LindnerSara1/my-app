@@ -3,6 +3,7 @@ import Profile from "../profile/Profile";
 import "./LandingPage.css";
 import Header from "../header/Header";
 import logoWhite from "../../Image/Asset 1שותפים 3.svg";
+import ButtonAddProject from "../buttonAddProject/ButtonAddProject";
 
 const LandingPage = () => {
   return (
@@ -18,12 +19,10 @@ const LandingPage = () => {
           </p>
         </div>
       </div>
+      <div id="ButtonAddProjectInLandingPage"><ButtonAddProject /></div>
       <div id="bottomPart">
         <div id="headerPublicProjects">פרויקטים ציבוריים</div>
         <PublicProjects />
-        {/* <div id="divButtonAddProject">
-          <button className="buttonAddProject">פרויקט חדש</button>
-        </div> */}
       </div>
     </>
   );

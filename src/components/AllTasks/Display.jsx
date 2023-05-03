@@ -1,6 +1,6 @@
 import "./display.css";
 import Select from "./select/Select";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import OkSelect from "./OkSelect";
 import {
   NEW_TASK,
@@ -9,7 +9,14 @@ import {
 } from "../../constant/colorConstant";
 import { UserContext } from "../../context/User.context";
 const Display = (props) => {
-  const { projectId, task, updateTask, allTasks, setAllTasks } = props;
+  const {
+    projectId,
+    task,
+    updateTask,
+    allTasks,
+    setAllTasks,
+    updateInListToDo,
+  } = props;
   const { setUser, user } = useContext(UserContext);
   const [openSelect, setOpenSelect] = useState(false);
   const [savedInDb, setSavedInDb] = useState(false);
@@ -26,12 +33,17 @@ const Display = (props) => {
   //   setAllTasks([...copyAllTasks]);
   // };
   const updateInDisplay = (newTask) => updateTask(newTask);
-
+  const dispatchToListToDo = (newTask) => {
+    updateInListToDo(newTask);
+  };
   const typeColor = {
     1: NEW_TASK,
     2: TASKS_CAUGHT,
     3: TASKS_DONE,
   };
+  useEffect(() => {
+    console.log(user.userId, user.userName, task.managerId);
+  }, []);
   return (
     <>
       {/* <div id="#displayTask">
@@ -44,9 +56,15 @@ const Display = (props) => {
       <div
         id="singleTask"
         onClick={() => {
-          if(task.taskStatusId == 1 ){setOpenSelect(true);}
+          if (task.taskStatusId == 1) {
+            setOpenSelect(true);
+          }
         }}
-        style={{ backgroundColor: typeColor[task.taskStatusId],padding:3,borderRadius: 21}}
+        style={{
+          backgroundColor: typeColor[task.taskStatusId],
+          padding: 3,
+          borderRadius: 21,
+        }}
       >
         {openSelect && (
           <Select
@@ -57,13 +75,16 @@ const Display = (props) => {
             savedInDb={savedInDb}
             setSavedInDb={setSavedInDb}
             updateInDisplay={updateInDisplay}
+            dispatchToListToDo={dispatchToListToDo}
           />
         )}
-        {savedInDb && (
+        {/* {savedInDb && (
           <OkSelect savedInDb={savedInDb} setSavedInDb={setSavedInDb} />
-        )}
+        )} */}
         <div id="taskKategory">{task.kategoryValue}</div>
-        {user.userId == task.mangerId && <div id="taskStatus">{isRender && task.userName}</div>}
+        {user.userId === task.managerId && (
+          <div id="taskStatus">{task.user}</div>
+        )}
         {/* <div id="taskStatus">{isRender && task.taskStatus}</div> */}
       </div>
     </>

@@ -21,7 +21,7 @@
   position: relative;
   z-index: 3;
   left: 1100px;
-  top: -34vh;
+  top: -29vh;
   background: #231535;
   border: 1px solid #000000;
   border-radius: 21px;
@@ -66,6 +66,12 @@
   background: rgb(234 232 236);
   width: 100vw;
   text-align: center;
+}
+#ButtonAddProjectInLandingPage{
+  position: fixed;
+  top:290px;
+  left:35px;
+z-index: 10;
 }
 /* .buttonAddProject { */
   /* width: 341px;

@@ -11,6 +11,7 @@ const AddProjectMember = () => {
   const { projectId } = useParams();
   const [newInput, setNewInput] = useState(0);
   const [arrInput, setArrInput] = useState([]);
+  const [isLoading, setIsLoading] = useState(0);
   const navigate = useNavigate();
 
   const FormSchema = yup.object().shape({
@@ -53,62 +54,70 @@ const AddProjectMember = () => {
     );
     arrToSend = JSON.stringify(arrToSend);
     try {
+      setIsLoading(1);
       await addEmails(projectId, arrToSend);
       navigate("/main/home");
+      setIsLoading(0);
     } catch (error) {
       console.error(error);
+      setIsLoading(0);
     }
   };
   return (
-    <div>
-      {/* <div>הרישום נקלט בהצלחה!!! </div> */}
-      <div>הכנס חברים לפרויקט</div>
-      {/* <form onSubmit={handleSubmit}> */}
-      <form>
-        <button
-          onClick={() => {
-            setArrInput([
-              ...arrInput,
-              <input
-                key={newInput}
-                id="email"
-                type="email"
-                name="email"
-                // onChange={(e) => {
-                //   handleChange();
-                //   setArrInput([...arrInput, e.target.value]);
-                // }}
-                onChange={handleChange}
-                values={values.email}
-                required
-              />,
-            ]);
-            setNewInput(newInput + 1);
-          }}
-        >
-          +
-        </button>
-
+    <>
+      {!isLoading &&
         <div>
-          {arrInput.map((input, i) => (
-            <div key={+i}>
-              {i + 1}
-              {input}
+          {/* <div>הרישום נקלט בהצלחה!!! </div> */}
+          <div>הכנס חברים לפרויקט</div>
+          {/* <form onSubmit={handleSubmit}> */}
+          <form>
+            <button
+              onClick={() => {
+                setArrInput([
+                  ...arrInput,
+                  <input
+                    key={newInput}
+                    id="email"
+                    type="email"
+                    name="email"
+                    // onChange={(e) => {
+                    //   handleChange();
+                    //   setArrInput([...arrInput, e.target.value]);
+                    // }}
+                    onChange={handleChange}
+                    values={values.email}
+                    required
+                  />,
+                ]);
+                setNewInput(newInput + 1);
+              }}
+            >
+              +
+            </button>
 
-              {/* {errors.email && touched.email && (
+            <div>
+              {arrInput.map((input, i) => (
+                <div key={+i}>
+                  {i + 1}
+                  {input}
+
+                  {/* {errors.email && touched.email && (
                 <span key={i} className="inputError">
                   {errors.email}
                 </span>
               )} */}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <button type="button" onClick={postEmails}>
-          Submit
-        </button>
-      </form>
-    </div>
+            <button type="button" onClick={postEmails}>
+              Submit
+            </button>
+          </form>
+        </div>
+      }
+      {isLoading && <div>isLoading</div>}
+    </>
   );
 };
 export default AddProjectMember;

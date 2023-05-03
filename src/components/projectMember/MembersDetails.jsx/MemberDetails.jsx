@@ -11,11 +11,14 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 const MemberDetails = (props) => {
   const { updateDetails, myProject, i } = props;
   const [savedInDb, setSavedInDb] = useState();
-  const [dueDate, setDueDate] = useState();
-
+  const [dueDate, setDueDate] = useState(0);
+  const [hebrewDate, setHebrewDate] = useState(0);
   const convertDate = async () => {
+    setHebrewDate(0);
     const d = await convertToHebrewDate(myProject.dueDate);
+    console.log(d);
     setDueDate(d);
+    setHebrewDate(1);
   };
   useEffect(() => {
     convertDate();
@@ -39,7 +42,9 @@ const MemberDetails = (props) => {
     const updatedTask = await updateTask(myProject);
     if (updatedTask) {
       setSavedInDb(true);
-      updateDetails(updatedTask);
+      setTimeout(() => {
+        updateDetails(updatedTask);
+      }, 3000);
     }
   };
   const saved = () => {
@@ -52,7 +57,7 @@ const MemberDetails = (props) => {
   };
   return (
     <>
-      <div id="allDetailsTaskMD">
+      <div id="allDetailsTaskMD" onClick={allTasks}>
         <div id="taskHeaderInProjectMemberMD">
           {/* <button onClick={displayDetails}>{myProject.k}</button> */}
           <div id="#theKategoryMD">{myProject.kategoryValue}</div>
@@ -62,24 +67,24 @@ const MemberDetails = (props) => {
           </div>
         </div>
         <div>
-          <div id="theDueDateMD">{dueDate}</div>
+          {hebrewDate != 0 && <div id="theDueDateMD">{dueDate}</div>}
           <div>{myProject.taskStatus}</div>
           <div
             id="buttonIsDoneMD"
             onClick={() => {
-              myProject.taskStatusId == 2 && isDone();
+              myProject.taskStatusId === 2 && isDone();
             }}
           >
             <div id="iconV">
               {/* <RadioButtonUncheckedIcon/> */}
-              {myProject.taskStatusId == 3 && <DoneIcon />}
+              {myProject.taskStatusId === 3 && <DoneIcon />}
             </div>
             <div className="textIsDone">בוצע</div>
           </div>
           {/* <Link to={`Tasks/${projectId}`}>לצפייה בכל המשימות של הפרויקט</Link> */}
-          <button onClick={allTasks}>לצפייה בכל המשימות של הפרויקט</button>
+          {/* <button onClick={allTasks}>לצפייה בכל המשימות של הפרויקט</button> */}
         </div>
-        {savedInDb && saved()}
+        {/* {savedInDb && saved()} */}
       </div>
     </>
     // ={navigate(`Tasks/${projectId}`)}

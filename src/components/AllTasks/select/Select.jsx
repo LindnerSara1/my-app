@@ -15,7 +15,7 @@ import { useState } from "react";
 //   return <Slide direction="up" ref={ref} {...props} />;
 // });
 const Select = (props) => {
-  const { projectId, task, openSelect, setOpenSelect,savedInDb, setSavedInDb,updateInDisplay } = props;
+  const { projectId, task, openSelect, setOpenSelect,savedInDb, setSavedInDb,updateInDisplay,dispatchToListToDo } = props;
   const { setUser, user } = useContext(UserContext);
   
   //   const handleClickOpen = () => {
@@ -46,8 +46,8 @@ const Select = (props) => {
         //   button: "ok",
         // });
         setSavedInDb(true);
-        console.log(updatedTask);
         updateInDisplay(updatedTask);
+        dispatchToListToDo(updatedTask);
       }
     } catch (error) {
       console.log(error);

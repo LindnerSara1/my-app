@@ -17,12 +17,12 @@ const Details = ({ updateDetails, myProject, i }) => {
   const sendMessage = () => {
     navigate(`/projects/addNewMessage/${myProject.projectId}`);
   };
-  if (isLoading) {
-    return <span>...Loading</span>;
-  } else {
+  const showMoreDetails=()=>{
+    navigate(`/Tasks/${myProject.projectId}`);
+  }
     return (
       <div>
-        <div id="boxProjectManaged">
+        <div id="boxProjectManaged" onClick={showMoreDetails}>
           {/* <button onClick={displayDetails}>{myProject.projectName}</button> */}
           <div id="projectManagedHeader">
             <div id="theKategory">{myProject.kategoryValue}</div>
@@ -41,6 +41,5 @@ const Details = ({ updateDetails, myProject, i }) => {
         </div>
       </div>
     );
-  }
-};
+  };
 export default Details;

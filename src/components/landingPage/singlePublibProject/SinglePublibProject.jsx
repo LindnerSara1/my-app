@@ -27,7 +27,6 @@ const SinglePublicProject = ({ updateDetails, myProject, i }) => {
     setIsLoading(1);
   }, []);
   useEffect(()=>{
-   
   },[dueDate])
   const toJion = () => {
     navigate(`/projects/${myProject.projectId}`);

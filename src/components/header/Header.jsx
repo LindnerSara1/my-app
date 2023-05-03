@@ -22,6 +22,7 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { ThemeProvider } from "@emotion/react";
+import HamburgerMenu from "./menu/hamburgerMenu/HamburgerMenu";
 
 const theme = createTheme({
   // MuiLinearProgress: {
@@ -116,6 +117,7 @@ const Header = () => {
         <br></br>
       </menu> */}
       {/* <Information setInfoUsersInUse={setInfoUsersInUse} setInfoOpenedBook={setInfoOpenedBook} setInfoClosedBook={setInfoClosedBook}/> */}
+        <HamburgerMenu/>
       <div id="headerBox">
         <img id="Logo" src={logo}></img>
         <Profile />

@@ -12,6 +12,7 @@
   flex-direction: row-reverse;
   /* text-align: center; */
   color: #ffffff;
+  cursor: pointer;
   /* font-size: 18px; */
 }
 .IconNewProjects{

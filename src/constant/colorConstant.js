@@ -8,4 +8,4 @@ export const BLUE_SCROLL = "rgba(45, 97, 183, 1)";
 //display in all tasks
 export const NEW_TASK = "#F3F6FF";
 export const TASKS_CAUGHT = "#FFDBDD";
-export const TASKS_DONE = " #D9F3DC";
+export const TASKS_DONE = "#c3fcd2";
