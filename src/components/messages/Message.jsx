@@ -9,6 +9,7 @@ import swal from "sweetalert";
 import { submitMessage } from "../../api/message.api";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./Message.css";
 const Message = () => {
   const {projectId} = useParams();
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const Message = () => {
   };
   return (
     <>
+    <div id="form_message">
       <FormControl>
         <div>הקלד הודעה</div>
         <FormControl>
@@ -85,6 +87,7 @@ const Message = () => {
           לשמירה
         </Button>
       </FormControl>
+      </div>
     </>
   );
 };

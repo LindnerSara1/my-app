@@ -6,7 +6,10 @@ import { UserContext } from "../../context/User.context";
 import * as projectApi from "../../api/project.api";
 import { useNavigate } from "react-router-dom";
 import { getKategories } from "../../api/kategories.api";
+
 // import "./NewProject.css";
+import logo from '../../Image/Asset 1שותפים 2.svg';
+import Profile from "../profile/Profile";
 import {
   DesktopDatePicker,
   LocalizationProvider,
@@ -19,12 +22,23 @@ import {
   FormControl,
   Box,
   Button,
+  ThemeProvider,
 } from "@mui/material";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import "./NewProject.css";
+import './newProject.style';
+import { theme } from "./newProject.style";
+import AddInput from "./addProjectMember/AddInput/AddInput";
+import AddProjectMember from "./addProjectMember/AddProjectMember";
+
 // import { useFormik } from "formik";
 const NewProject = () => {
+
   // const { kategories } = useContext(KategoriesContext);
+  const [open_email,setOpen_email]=useState(false);
+  const openNavi=()=>{
+    setOpen_email(true);
+}
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const [newProject, setNewProject] = useState({
@@ -57,8 +71,9 @@ const NewProject = () => {
       newProject.goal,
       newProject.personNameFor
     );
+    openNavi();
     // console.log(projectId);
-    navigate(`/addProjectMember/${projectId}`);
+    // navigate(`/addProjectMember/${projectId}`);
   };
   const [kategories, setKategories] = useState([{}]);
   const getKategoriesFromServer = async () => {
@@ -72,7 +87,7 @@ const NewProject = () => {
   };
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/welcome ");
     } else {
       getKategoriesFromServer();
     }
@@ -92,31 +107,41 @@ const NewProject = () => {
   };
 
   return (
-    <Box className="Box">
-      <h1>new Project!</h1>
-      {/* <FormControl className="form"> */}
-      <FormControl>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DesktopDatePicker
-            // className={classes.fromDate}
-            label="תאריך התחלה"
-            inputFormat="dd/MM/yyyy"
-            value={newProject.startDate}
-            minDate={new Date(Date.now())}
-            onChange={handleStartDateChange}
-            renderInput={(params) => <TextField {...params} />}
-          />
-          <DesktopDatePicker
-            // className={classes.toDate}
-            label="תאריך יעד"
-            inputFormat="dd/MM/yyyy"
-            value={newProject.dueDate}
-            minDate={newProject.startDate}
-            onChange={handleEndDateChange}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
-        {/* <TextField
+    <div id="body_newProject">
+    
+      <ThemeProvider theme={theme}>
+       
+        <Box className="box"> <div id="headerInNewProject">
+    <img id="Logo_newProject" src={logo}></img>
+  <Profile/></div>
+          {/* <FormControl > */}
+
+          <div id="form">
+            <h2 id="new_project">פרויקט חדש</h2>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <FormControl >
+                <DesktopDatePicker
+                  // className={classes.fromDate}
+                  label="תאריך התחלה"
+                  inputFormat="dd/MM/yyyy"
+                  value={newProject.startDate}
+                  minDate={new Date(Date.now())}
+                  onChange={handleStartDateChange}
+                  renderInput={(params) => <TextField {...params} />
+                  }
+                />          </FormControl>
+              <FormControl>
+                <DesktopDatePicker
+                  // className={classes.toDate}
+                  label="תאריך יעד"
+                  inputFormat="dd/MM/yyyy"
+                  value={newProject.dueDate}
+                  minDate={newProject.startDate}
+                  onChange={handleEndDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                /></FormControl>
+            </LocalizationProvider>
+            {/* <TextField
           required={true}
           id="outlined-basic"
           label="שם הפרויקט"
@@ -126,7 +151,7 @@ const NewProject = () => {
             setNewProject({ ...newProject, projectName: e.target.value });
           }}
         ></TextField> */}
-        {/* <label className="label">שם הפרויקט</label>
+            {/* <label className="label">שם הפרויקט</label>
         <input
           className="input"
           placeholder={"project name"}
@@ -135,36 +160,36 @@ const NewProject = () => {
             setNewProject({ ...newProject, projectName: e.target.value });
           }}
         ></input> */}
+            <FormControl>
 
-        <FormControl>
-          <InputLabel id="kategoryNameLabel">בחר אופן חלוקה</InputLabel>
-          <Select
-            // labelId="kategoryNameLabel"
-            id="kategoryNameSelect"
-            // value={newProject.kategoryName?newProject.kategoryName:""}
-            label="בחר אופן חלוקה"
-            value={kategories.find((k) =>
-              k.kategoryId === newProject.kategoryId ? k.kategoryName : ""
-            )}
-            onChange={(e) => {
-              const id = kategories.find(
-                (p) => p.kategoryName === e.target.value
-              ).kategoryId;
-              setNewProject({
-                ...newProject,
-                kategoryId: id,
-              });
-            }}
-          >
-            {kategories.map(({ kategoryName, i }) => (
-              <MenuItem key={i + kategoryName} value={kategoryName}>
-                {kategoryName}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+              <InputLabel id="kategoryNameLabel">בחר אופן חלוקה</InputLabel>
+              <Select
+                // labelId="kategoryNameLabel"
+                id="kategoryNameSelect"
+                // value={newProject.kategoryName?newProject.kategoryName:""}
+                // label="בחר אופן חלוקה"
+                value={kategories.find((k) =>
+                  k.kategoryId === newProject.kategoryId ? k.kategoryName : ""
+                )}
+                onChange={(e) => {
+                  const id = kategories.find(
+                    (p) => p.kategoryName === e.target.value
+                  ).kategoryId;
+                  setNewProject({
+                    ...newProject,
+                    kategoryId: id,
+                  });
+                }}
+              >
+                {kategories.map(({ kategoryName, i }) => (
+                  <MenuItem key={i + kategoryName} value={kategoryName}>
+                    {kategoryName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
-        {/* <label className="label">בחר אופן חלוקה</label>
+            {/* <label className="label">בחר אופן חלוקה</label>
         <select
           className="select"
           value={newProject.kategoryName}
@@ -179,29 +204,29 @@ const NewProject = () => {
             });
           }}
         > */}
-        {/* {kategories.map(({ kategoryName }) => (
+            {/* {kategories.map(({ kategoryName }) => (
             <option>{kategoryName}</option>
           ))}
         </select> */}
 
-        <FormControl>
-          <InputLabel id="goalLabel">מטרת הלימוד</InputLabel>
-          <Select
-            labelId="goalLabel"
-            id="goalSelect"
-            value={newProject.goal}
-            onChange={(e) => {
-              setNewProject({ ...newProject, goal: e.target.value });
-            }}
-          >
-            {goals.map((goal, i) => (
-              <MenuItem key={i + goal} value={goal}>
-                {goal}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {/* <label className="label">מטרת הלימוד</label>
+            <FormControl>
+              <InputLabel id="goalLabel">מטרת הלימוד</InputLabel>
+              <Select
+                labelId="goalLabel"
+                id="goalSelect"
+                value={newProject.goal}
+                onChange={(e) => {
+                  setNewProject({ ...newProject, goal: e.target.value });
+                }}
+              >
+                {goals.map((goal, i) => (
+                  <MenuItem key={i + goal} value={goal}>
+                    {goal}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            {/* <label className="label">מטרת הלימוד</label>
         <select
           className="select"
           value={newProject.goal}
@@ -209,28 +234,33 @@ const NewProject = () => {
             setNewProject({ ...newProject, goal: e.target.value });
           }}
         > */}
-        {/* {goal.map((t, i) => (
+            {/* {goal.map((t, i) => (
             <option key={i}>{t}</option>
           ))}
         </select> */}
-        <TextField
-          id="outlined-basic"
-          label="הלימוד לזכות"
-          variant="outlined"
-          value={newProject.personNameFor}
-          onChange={(e) => {
-            setNewProject({ ...newProject, personNameFor: e.target.value });
-          }}
-        ></TextField>
-        {/* <label className="label">הלימוד לזכות</label> */}
-        {/* <input
+            <FormControl>
+
+              <TextField
+                id="outlined-basic"
+                label="הלימוד לזכות"
+                variant="outlined"
+                value={newProject.personNameFor}
+                onChange={(e) => {
+                  setNewProject({ ...newProject, personNameFor: e.target.value });
+                }}
+
+              ></TextField>
+            </FormControl>
+
+            {/* <label className="label">הלימוד לזכות</label> */}
+            {/* <input
         className="input"
           value={newProject.personNameFor}
           onChange={(e) => {
             setNewProject({ ...newProject, personNameFor: e.target.value });
           }}
         ></input> */}
-        {/* <label className="label">תאריך יעד</label>
+            {/* <label className="label">תאריך יעד</label>
         <input
           className="input"
           type="date"
@@ -240,7 +270,7 @@ const NewProject = () => {
           }}
         /> */}
 
-        {/* <label className="label">תאריך התחלה</label>
+            {/* <label className="label">תאריך התחלה</label>
         <input
           className="input"
           type="date"
@@ -249,18 +279,21 @@ const NewProject = () => {
             setNewProject({ ...newProject, startDate: e.target.value });
           }}
         /> */}
-        <TextField
-          id="outlined-basic"
-          label="כמות הספרים"
-          type="number"
-          InputProps={{ inputProps: { min: 1, max: 10 } }}
-          variant="outlined"
-          value={newProject.quantity ? newProject.quantity : 1}
-          onChange={(e) => {
-            setNewProject({ ...newProject, quantity: e.target.value });
-          }}
-        ></TextField>
-        {/* <label className="label">כמות ספרים</label>
+            <FormControl>
+
+              <TextField
+                id="outlined-basic"
+                label="כמות הספרים"
+                type="number"
+                InputProps={{ inputProps: { min: 1, max: 10 } }}
+                variant="outlined"
+                value={newProject.quantity ? newProject.quantity : 1}
+                onChange={(e) => {
+                  setNewProject({ ...newProject, quantity: e.target.value });
+                }}
+              ></TextField>
+            </FormControl>
+            {/* <label className="label">כמות ספרים</label>
         <input
           className="input"
           type={"number"}
@@ -272,17 +305,27 @@ const NewProject = () => {
             });
           }}
         ></input> */}
-        {/* <label>האם ברצונך לאפשר ללימוד להיות ציבורי?</label>
+            {/* <label>האם ברצונך לאפשר ללימוד להיות ציבורי?</label>
         <input className="input" type="checkbox" value={true}></input>
         <br></br>
         <label>הכנס את המילים של חברי הקבוצה</label>
         <input type="email"></input>
         <br />*/}
-        <Button variant="outlined" onClick={addProject}>
-          שמור
-        </Button>
-      </FormControl>
-    </Box>
+            <Button id="button_submit" variant="outlined" onClick={addProject}>
+              שמור
+            </Button>
+            {/* <button id="btn_addEmail" >הוספת כתובת מייל */}
+  
+  {/* </button> */}
+  {open_email && <div><AddProjectMember open={open_email} setOpen_email={setOpen_email}/></div>}
+          </div>
+          {/* </FormControl> */}
+          
+        </Box>
+      </ThemeProvider>
+ 
+    </div>
+
   );
 };
 export default NewProject;

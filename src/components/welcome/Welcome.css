@@ -1,0 +1,19 @@
+body {
+    background-image: url('/src/Image/sunrise-1634197_1920\ 1.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: flex-end;
+    gap:30px;
+    margin-top: 20vh;
+}
+#Logo{
+    margin-top: 10px;
+}

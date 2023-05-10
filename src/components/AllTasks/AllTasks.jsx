@@ -37,7 +37,7 @@ const AllTasks = () => {
   };
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/welcome");
     } else {
       getAllTasksFromServer();
     }

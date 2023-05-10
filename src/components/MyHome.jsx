@@ -13,7 +13,7 @@ const MyHome = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/welcome");
     }
   }, []);
   return (

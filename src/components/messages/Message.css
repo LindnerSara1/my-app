@@ -1,0 +1,8 @@
+#form_message{
+    width: 100vw;
+    height: calc(100vh, "-", 3%);
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    align-items: center;
+}

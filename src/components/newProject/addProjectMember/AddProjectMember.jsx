@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { addEmails } from "../../../api/project.api";
 import { emailDTO } from "../../../Models/emailDTO";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const AddProjectMember = () => {
   const { projectId } = useParams();
@@ -65,58 +66,62 @@ const AddProjectMember = () => {
   };
   return (
     <>
-      {!isLoading &&
-        <div>
-          {/* <div>הרישום נקלט בהצלחה!!! </div> */}
-          <div>הכנס חברים לפרויקט</div>
-          {/* <form onSubmit={handleSubmit}> */}
-          <form>
-            <button
-              onClick={() => {
-                setArrInput([
-                  ...arrInput,
-                  <input
-                    key={newInput}
-                    id="email"
-                    type="email"
-                    name="email"
-                    // onChange={(e) => {
-                    //   handleChange();
-                    //   setArrInput([...arrInput, e.target.value]);
-                    // }}
-                    onChange={handleChange}
-                    values={values.email}
-                    required
-                  />,
-                ]);
-                setNewInput(newInput + 1);
-              }}
-            >
-              +
-            </button>
+      <div id="body_input">
 
-            <div>
-              {arrInput.map((input, i) => (
-                <div key={+i}>
-                  {i + 1}
-                  {input}
+        {!isLoading &&
+          <div>
+            {/* <div>הרישום נקלט בהצלחה!!! </div> */}
+            <div>הכנס כתובות מייל של חברים</div>
+            {/* <form onSubmit={handleSubmit}> */}
+            <form id="form_email">
+              <button id="button_add"
+                onClick={() => {
+                  setArrInput([
+                    ...arrInput,
+                    <input
+                      key={newInput}
+                      id="email"
+                      type="email"
+                      name="email"
+                      // onChange={(e) => {
+                      //   handleChange();
+                      //   setArrInput([...arrInput, e.target.value]);
+                      // }}
+                      onChange={handleChange}
+                      values={values.email}
+                      required
+                    />,
+                  ]);
+                  setNewInput(newInput + 1);
+                }}
+              >
+                +הוספת חבר
+              </button>
 
-                  {/* {errors.email && touched.email && (
+              <div>
+                {arrInput.map((input, i) => (
+                  <div key={+i}>
+                    {i + 1}
+                    {input}
+
+                    {/* {errors.email && touched.email && (
                 <span key={i} className="inputError">
                   {errors.email}
                 </span>
               )} */}
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
 
-            <button type="button" onClick={postEmails}>
-              Submit
-            </button>
-          </form>
-        </div>
-      }
-      {isLoading && <div>isLoading</div>}
+              <button id="btn_submit" type="button" onClick={postEmails}>
+                שמירה
+              </button>
+            </form>
+          </div>
+        }
+        {isLoading ? <div>      <CircularProgress /></div> : <div>isloading</div>
+        }
+      </div>
     </>
   );
 };

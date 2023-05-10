@@ -14,7 +14,7 @@ import {
   useFormik,
 } from "formik";
 import { Button, FormControl, ThemeProvider } from "@mui/material";
-import {theme} from './SignUp.style';
+import {theme} from './SignUp.style.js';
 import './SignUp.css';
 // const validate = (values) => {
 //   const errors = {};
@@ -135,7 +135,7 @@ const SignUp = () => {
     },
   });
   return (
-    // <>
+     //<>
     //   <h1>אנו שמחים שבחרת להצטרך אלינו, אנא הכנס את הפרטים שלך!!!</h1>
     //   <form onSubmit={signFunc}>
     //     {/* <form onSubmit={formik.handleSubmit}> */}
@@ -187,14 +187,16 @@ const SignUp = () => {
     //   </form>
     // </>
     <ThemeProvider theme={theme}>
-    <FormControl id="form" onSubmit={formik.handleSubmit}>
+    <FormControl id="formInSignUp" onSubmit={formik.handleSubmit} sx={{display:"flex",flexDirection:"column"}}>
       <div id="header">!ברוך הבא</div>
       <div id="startText">בוא נתחיל</div>
+      <div id="boxTextFields">
       <TextField
+      
         id="userName"
-        sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
+        sx={{ backgroundColor: "white", borderRadius: 2, margin: 0.5 }}
         name="userName"
-        label="userName"
+        label="שם משתמש"
         type="text"
         value={formik.values.userName}
         onChange={formik.handleChange}
@@ -203,9 +205,9 @@ const SignUp = () => {
       />
       <TextField
         id="password"
-        sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
+        sx={{ backgroundColor: "white", borderRadius: 2, margin: 0.5 }}
         name="password"
-        label="password"
+        label="סיסמא"
         type="text"
         value={formik.values.password}
         onChange={formik.handleChange}
@@ -214,9 +216,9 @@ const SignUp = () => {
       />
       <TextField
         id="verifyPassword"
-        sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
+        sx={{ backgroundColor: "white", borderRadius: 2, margin: 0.5 }}
         name="verifyPassword"
-        label="verifyPassword"
+        label="אימות סיסמא"
         type="text"
         value={formik.values.verifyPassword}
         onChange={formik.handleChange}
@@ -229,9 +231,9 @@ const SignUp = () => {
       />
       <TextField
         id="email"
-        sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
+        sx={{ backgroundColor: "white", borderRadius: 2, margin: 0.5 }}
         name="email"
-        label="email"
+        label="אימייל"
         type="text"
         value={formik.values.email}
         onChange={formik.handleChange}
@@ -240,18 +242,19 @@ const SignUp = () => {
       />
       <TextField
         id="phoneNumber"
-        sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
+        sx={{ backgroundColor: "white", borderRadius: 2, margin: 0.5 }}
         name="phoneNumber"
-        label="phoneNumber"
+        label="טלפון"
         type="text"
         value={formik.values.phoneNumber}
         onChange={formik.handleChange}
         error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
         helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
       />
-      <Button color="primary" variant="contained" type="submit">
-        submit{" "}
+      <Button id="buttonSubmitInSignUp" color="primary" variant="contained" type="submit">
+          שמירה{" "}
       </Button>
+      </div>
     </FormControl>
     </ThemeProvider>
   );

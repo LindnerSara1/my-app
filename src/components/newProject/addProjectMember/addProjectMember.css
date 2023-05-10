@@ -1,3 +1,46 @@
-#inputBase{
-    border: 2px solid red;
+#body_input{
+    display: flex;
+    /* width: 574px; */
+    /* height: 299px; */
+    
+    /* left: 20%; */
+    display: inline-block;
+
+    background: #ffffff6b;
+    border-radius: 21px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;  
+    /* margin-top: 40px; */
+    padding-top: 50px;
+    padding-left: 30PX;
+    PADDING-RIGHT: 40PX;
+    PADDING-BOTTOM: 50PX;
+    position: relative;
+    left: -450px;
+    top: -357px;
+    margin-left: 27%;
+
+}
+#button_add{
+    background-color: blue;
+    color: white;
+    font-family: sans-serif;
+    width: 150px;
+    height: 30px;
+    border-radius: 21px;
+}
+#btn_submit{
+    background-color: gray;
+    color: white;
+    font-family: sans-serif;
+    width: 100px;
+    height: 30px;
+    border-radius: 21px;
+}
+#form_email{
+    width: 200px;
+    height: 150px;
 }
