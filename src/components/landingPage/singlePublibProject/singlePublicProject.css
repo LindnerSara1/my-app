@@ -1,5 +1,5 @@
 #iconProfile {
-  position: relative;
+  /* position: relative; */
   width: 22px;
   height: 22px;
   margin-right: 4px;
@@ -15,8 +15,8 @@
   box-shadow: 0px 4px 20px rgb(40 59 154 / 25%);
   border-radius: 20px;
   align-items: center;
-  position: relative;
-  left: -135px;
+  /* position: relative; */
+  /* left: -135px; */
   bottom: -3px;
   width: 108px;
   height: 34px;
@@ -56,7 +56,8 @@
   font-size: 20px;
   line-height: 25px;
   flex-wrap: nowrap;
-}#theKategory {
+}
+#theKategory {
   font-size: 16px;
 }
 #theGoal {
@@ -79,4 +80,12 @@
 }
 #projectHeader > div {
   margin-left: 6px;
+}
+#circularAndButtonToJoin{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+  justify-content: space-between;
+  z-index: 0.7;
 }

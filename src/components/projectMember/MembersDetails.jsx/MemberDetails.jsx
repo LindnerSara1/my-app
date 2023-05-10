@@ -7,6 +7,7 @@ import "./memberDetails.css";
 import convertToHebrewDate from "../../ConvertToHebrewDate";
 import DoneIcon from "@mui/icons-material/Done";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import CircularStatic from "../../circularProgress/CircularStatic";
 
 const MemberDetails = (props) => {
   const { updateDetails, myProject, i } = props;
@@ -57,8 +58,8 @@ const MemberDetails = (props) => {
   };
   return (
     <>
-      <div id="allDetailsTaskMD" onClick={allTasks}>
-        <div id="taskHeaderInProjectMemberMD">
+      <div id="allDetailsTaskMD" >
+        <div id="taskHeaderInProjectMemberMD" onClick={allTasks}>
           {/* <button onClick={displayDetails}>{myProject.k}</button> */}
           <div id="#theKategoryMD">{myProject.kategoryValue}</div>
           <div id="theGoalAndThePersonNameForMD">
@@ -66,9 +67,10 @@ const MemberDetails = (props) => {
             <div id="#thePersonNameForMD">{myProject.personNameFor}</div>
           </div>
         </div>
-        <div>
           {hebrewDate != 0 && <div id="theDueDateMD">{dueDate}</div>}
-          <div>{myProject.taskStatus}</div>
+          {/* <div>{myProject.taskStatus}</div> */}
+        <div id="circularAndButtonIsDone">
+          <CircularStatic percentages={myProject.tasksDoneInPercentages} />
           <div
             id="buttonIsDoneMD"
             onClick={() => {

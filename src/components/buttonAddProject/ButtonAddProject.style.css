@@ -13,12 +13,14 @@
   /* text-align: center; */
   color: #ffffff;
   cursor: pointer;
+  z-index: 0.8;
   /* font-size: 18px; */
 }
-.IconNewProjects{
+#IconNewProjects{
 font-size: 34px;
 padding-left: 3px;
+cursor: pointer;
 }
-.wordsNewProjects{
-
+#wordsNewProjects{
+  cursor: pointer;
 }

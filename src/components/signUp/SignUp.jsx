@@ -134,6 +134,7 @@ const SignUp = () => {
       setSubmitting(false);
     },
   });
+ 
   return (
     // <>
     //   <h1>אנו שמחים שבחרת להצטרך אלינו, אנא הכנס את הפרטים שלך!!!</h1>
@@ -187,11 +188,12 @@ const SignUp = () => {
     //   </form>
     // </>
     <ThemeProvider theme={theme}>
-    <FormControl id="form" onSubmit={formik.handleSubmit}>
+    <FormControl  id="form" onSubmit={formik.handleSubmit}>
       <div id="header">!ברוך הבא</div>
       <div id="startText">בוא נתחיל</div>
       <TextField
         id="userName"
+     
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
         name="userName"
         label="userName"

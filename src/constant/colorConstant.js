@@ -9,3 +9,7 @@ export const BLUE_SCROLL = "rgba(45, 97, 183, 1)";
 export const NEW_TASK = "#F3F6FF";
 export const TASKS_CAUGHT = "#FFDBDD";
 export const TASKS_DONE = "#c3fcd2";
+//Percentages אחוזים
+export const RED = "#E79983";
+export const BLUE = "#2D61B7";
+export const GREEN = "#7FC186";

@@ -1,4 +1,3 @@
-import CloseIcon from "@mui/icons-material/Close";
 import Menu from "../../Menu";
 const NavMenu = (props) => {
   const { open, setOpen } = props;
@@ -9,8 +8,8 @@ const NavMenu = (props) => {
     <>
       {open && (
         <div onClick={closeNav}>
-          <CloseIcon />
-          <Menu/>
+         
+          <Menu closeNav={closeNav} open={open}/>
         </div>
       )}
     </>

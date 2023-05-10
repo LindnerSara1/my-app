@@ -1,33 +1,60 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import react, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { GREEN, BLUE, RED } from "../../constant/colorConstant";
 
-const CircularProgressWithLabel=(props)=> {
+const CircularProgressWithLabel = (props) => {
+  const [colorPercentages, setColorPercentages] = useState(0);
+  const [initColor, setInitColor] = useState(0);
+  const typeColor = {
+    1: RED,
+    2: BLUE,
+    3: GREEN,
+  };
+  const initialColor = (percentages) => {
+    percentages <= 33
+      ? setColorPercentages(1)
+      : percentages > 33 && percentages <= 66
+      ? setColorPercentages(2)
+      : setColorPercentages(3);
+    setInitColor(1);
+  };
+  useEffect(() => {
+    initialColor();
+  }, []);
   return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate" {...props} />
-      <Box
-        sx={{
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          position: 'absolute',
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography variant="caption" component="div" color="text.secondary">
-          {`${Math.round(props.value)}%`}
-        </Typography>
-      </Box>
-    </Box>
+    <>
+      {initColor != 0 && (
+        <Box sx={{ position: "relative", display: "inline-flex",  }}>
+          <CircularProgress variant="determinate" {...props} />
+          <Box
+            sx={{
+              top: 0,
+              left: 0,
+              bottom: 0,
+              right: 0,
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              
+            }}
+          >
+            <Typography
+              variant="caption"
+              component="div"
+              color="text.secondary"
+            >
+              {`${Math.round(props.value)}%`}
+            </Typography>
+          </Box>
+        </Box>
+      )}
+    </>
   );
-}
-
+};
 CircularProgressWithLabel.propTypes = {
   /**
    * The value of the progress indicator for the determinate variant.
@@ -38,16 +65,11 @@ CircularProgressWithLabel.propTypes = {
 };
 
 export default function CircularStatic(props) {
-  const [progress, setProgress] = React.useState(10);
-const {value}=props;
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-    }, 800);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const { percentages } = props;
 
-  return <CircularProgressWithLabel value={value} />;
+  return (
+    <>
+      <CircularProgressWithLabel value={percentages} />
+    </>
+  );
 }

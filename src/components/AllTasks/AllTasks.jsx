@@ -11,6 +11,7 @@ import logo from "../../Image/Asset 1שותפים 2.svg";
 import ProjectMember from "../projectMember/ProjectMember";
 import ButtonAddProject from "../buttonAddProject/ButtonAddProject";
 import ButtonAddProjectMemebers from "../buttonAddProjectMembers/ButtonAddProjectMembers";
+import CircularStatic from "../circularProgress/CircularStatic";
 const AllTasks = () => {
   const { projectId } = useParams();
   const [allTasks, setAllTasks] = useState([]);
@@ -60,12 +61,12 @@ const AllTasks = () => {
     setTaskToInsert(newTask);
     // setTaskToInsert(true);
   };
-  const updateTaskStatus =(task)=>{
-    const index = allTasks.findIndex(t=>t.taskId === task.taskId);
+  const updateTaskStatus = (task) => {
+    const index = allTasks.findIndex((t) => t.taskId === task.taskId);
     const copyAllTasks = [...allTasks];
     copyAllTasks[index] = task;
     setAllTasks(copyAllTasks);
-  }
+  };
   return (
     <>
       <div id="HeaderInAllTasks">
@@ -116,15 +117,29 @@ const AllTasks = () => {
         </div>
       </div>
       <div id="bottomPartInAllTAsks">
-        {" "}
-        <div id="buttonAddMemebers">
-          <ButtonAddProjectMemebers />
+        {allTasks.length > 0 && (
+          <div id="CircularStaticInAllTasks">
+            <CircularStatic
+              percentages={allTasks[0].tasksCaughtInPercentages}
+            />
+            <div>נתפסו</div>
+            <CircularStatic percentages={allTasks[0].tasksDoneInPercentages} />
+            <div>הושלמו</div>
+          </div>
+        )}
+        <div id="buttons">
+          <div id="buttonAddMemebers">
+            <ButtonAddProjectMemebers />
+          </div>
+          <div id="buttonAddNewProject">
+            <ButtonAddProject />
+          </div>
         </div>
-        <div id="buttonAddNewProject"></div>
-        <ButtonAddProject />
       </div>
-
-      <ProjectMember taskToInsert={taskToInsert} updateTaskStatus={updateTaskStatus}/>
+      <ProjectMember
+        taskToInsert={taskToInsert}
+        updateTaskStatus={updateTaskStatus}
+      />
     </>
   );
   // }

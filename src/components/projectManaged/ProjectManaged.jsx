@@ -8,9 +8,10 @@ const ProjectManaged = () => {
   const [myProjectManaged, setMyProjectManaged] = useState([]);
   const getProjectManagedFromServer = async () => {
     try {
+      if(user){
       const data = await getProjectManaged(user?.userId);
       setMyProjectManaged(data);
-      console.log(data);
+      console.log(data);}
     } catch (error) {
       console.error(error);
     }
@@ -32,11 +33,15 @@ const ProjectManaged = () => {
       <div id="boxAllProjectManaged">
         <h1>פרויקטים בניהולי</h1>
         <div id="allProjectManaged">
-          {myProjectManaged.length > 0 && myProjectManaged.map((project, index) => (
-            <div value={project} key={+index}>
-              <Details updateDetails={updateDetails} myProject={project} />
-            </div>
-          ))}
+          {myProjectManaged.length > 0 &&
+            myProjectManaged.map((project, index) => (
+              <div value={project} key={+index}>
+                <Details updateDetails={updateDetails} myProject={project} />
+              </div>
+            ))}
+          {myProjectManaged.length === 0 && (
+            <div id="noneProject">אין פרויקטים ממתינים עבורך</div>
+          )}
         </div>
       </div>
     </>

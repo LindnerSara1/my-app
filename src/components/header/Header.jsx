@@ -50,15 +50,19 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor:
-        theme.palette.mode === "pinkScroll" || theme.palette.mode === "greenScroll"||theme.palette.mode === "blueScroll" ? `${PINK_SCROLL}` :  '#F3F6FF'
+      theme.palette.mode === "pinkScroll" ||
+      theme.palette.mode === "greenScroll" ||
+      theme.palette.mode === "blueScroll"
+        ? `${PINK_SCROLL}`
+        : "#F3F6FF",
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
     backgroundColor:
-     theme.palette.mode === "pinkScroll" && `${PINK_SCROLL}` ||
-      theme.palette.mode === "greenScroll" && `${GREEN_SCROLL}` ||
-      theme.palette.mode === "blueScroll" && `${BLUE_SCROLL}`
-        // : "#308015",
+      (theme.palette.mode === "pinkScroll" && `${PINK_SCROLL}`) ||
+      (theme.palette.mode === "greenScroll" && `${GREEN_SCROLL}`) ||
+      (theme.palette.mode === "blueScroll" && `${BLUE_SCROLL}`),
+    // : "#308015",
     // backgroundColor: theme.palette.mode === 'light' ? '#308015' : '#F3F6FF',
   },
 }));
@@ -117,7 +121,8 @@ const Header = () => {
         <br></br>
       </menu> */}
       {/* <Information setInfoUsersInUse={setInfoUsersInUse} setInfoOpenedBook={setInfoOpenedBook} setInfoClosedBook={setInfoClosedBook}/> */}
-        <HamburgerMenu/>
+
+      {/* <HamburgerMenu/> */}
       <div id="headerBox">
         <img id="Logo" src={logo}></img>
         <Profile />
@@ -163,8 +168,7 @@ const Header = () => {
             />
             <BorderLinearProgress
               variant="determinate"
-              // value={openedBook}
-              value={5}
+              value={openedBook}
               color="greenScroll"
             />
             <BorderLinearProgress

@@ -5,18 +5,18 @@ import MemberDetails from "./MembersDetails.jsx/MemberDetails";
 import "./projectMember.css";
 
 const ProjectMember = (props) => {
-  const { taskToInsert,updateTaskStatus } = props;
+  const { taskToInsert, updateTaskStatus } = props;
   const { setUser, user } = useContext(UserContext);
   const [myProjectMember, setMyProjectMember] = useState([]);
   const [updateListToDo, setUpdateListToDo] = useState(false);
   const getProjectMemberFromServer = async () => {
-    if (user) {
-      try {
+    try {
+      if (user) {
         const data = await getProjectMember(user?.userId);
         setMyProjectMember(data);
-      } catch (error) {
-        console.error(error);
       }
+    } catch (error) {
+      console.error(error);
     }
   };
   useEffect(() => {
@@ -26,26 +26,27 @@ const ProjectMember = (props) => {
 
   // useEffect(() => {
   //   if (taskToInsert) {
-      // const data = [...myProjectMember];
-      // const indexToInsert = sortedIndex(data,taskToInsert);
-      // const newData=data;
-      // setMyProjectMember(newData);
+  // const data = [...myProjectMember];
+  // const indexToInsert = sortedIndex(data,taskToInsert);
+  // const newData=data;
+  // setMyProjectMember(newData);
   //   }
   // }, [taskToInsert]);
 
   const [details, setDetails] = useState();
-  const updateDetails =(task) => {
+  const updateDetails = (task) => {
     // const index = myProjectMember.findIndex((t) => t.taskId === task.taskId);
     // const copyMyProjectMember = [...myProjectMember];
     // copyMyProjectMember[index] = task;
     // setMyProjectMember(copyMyProjectMember);
-    
-    
-    const index = myProjectMember.findIndex((t) => t.taskStatusId === 3 && t.taskId === task.taskId);
+
+    const index = myProjectMember.findIndex(
+      (t) => t.taskStatusId === 3 && t.taskId === task.taskId
+    );
     const copyMyProjectMember = [...myProjectMember];
-    updateTaskStatus(myProjectMember[index]);
-    copyMyProjectMember.splice(index,1);
+    copyMyProjectMember.splice(index, 1);
     setMyProjectMember(copyMyProjectMember);
+    updateTaskStatus(myProjectMember[index]);
   };
   return (
     <>

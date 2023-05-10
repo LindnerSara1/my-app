@@ -13,13 +13,15 @@ const LandingPage = () => {
         <div id="aboutUs">
           <img id="aboutHeader" src={logoWhite}></img>
           <p id="aboutContent">
-            שותפים+ הינה מערכת שיתופית לניהול אמירת תהילים על ידי מספר חברים בקבוצה, 
-            המערכת כוללת ניהול משימות, שליחת תזכורות והתראות לחברי הקבוצה על פי תאריכי יעד 
-            ומעקב וניתוח המידע על התקדמות ביצוע הפרויקט.
+            שותפים+ הינה מערכת שיתופית לניהול אמירת תהילים על ידי מספר חברים
+            בקבוצה, המערכת כוללת ניהול משימות, שליחת תזכורות והתראות לחברי
+            הקבוצה על פי תאריכי יעד ומעקב וניתוח המידע על התקדמות ביצוע הפרויקט.
           </p>
         </div>
       </div>
-      <div id="ButtonAddProjectInLandingPage"><ButtonAddProject /></div>
+      <div id="ButtonAddProjectInLandingPage">
+        <ButtonAddProject />
+      </div>
       <div id="bottomPart">
         <div id="headerPublicProjects">פרויקטים ציבוריים</div>
         <PublicProjects />
