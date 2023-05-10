@@ -8,7 +8,7 @@ const HamburgerMenu = () => {
     }
   return (
     <>
-      <div on onClick={openNav}>
+      <div onClick={openNav}>
         <MenuIcon />
       </div>
       {open && <div><NavMenu open={open} setOpen={setOpen}/></div>}

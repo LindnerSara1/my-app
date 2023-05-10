@@ -9,9 +9,11 @@ const ProjectInvited = () => {
   const [myProjectInvited, setMyProjectInvited] = useState([]);
   const getProjectInvitedFromServer = async () => {
     try {
-      const data = await getProjectInvited(user?.userId);
-      setMyProjectInvited(data);
-      console.log(data);
+      if (user) {
+        const data = await getProjectInvited(user?.userId);
+        setMyProjectInvited(data);
+        console.log(data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -33,14 +35,18 @@ const ProjectInvited = () => {
       <div id="boxAllProjectInvited">
         <h1>הוזמנת להשתתף</h1>
         <div id="allProjectInvited">
-          {myProjectInvited.length > 0 && myProjectInvited.map((project, index) => (
-            <div value={project} key={+index}>
-              <SinglePublicProject
-                updateDetails={updateDetails}
-                myProject={project}
-              />
-            </div>
-          ))}
+          {myProjectInvited.length > 0 &&
+            myProjectInvited.map((project, index) => (
+              <div value={project} key={+index}>
+                <SinglePublicProject
+                  updateDetails={updateDetails}
+                  myProject={project}
+                />
+              </div>
+            ))}
+          {myProjectInvited.length === 0 && (
+            <div id="noneProject">אין פרויקטים ממתינים עבורך</div>
+          )}
         </div>
       </div>
     </>

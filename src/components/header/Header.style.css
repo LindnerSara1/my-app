@@ -47,3 +47,11 @@ menu > a {
   margin-left: 47%;
   /* margin-top: 2.5%; */
 }
+#menuInHeader{
+  /* display: inline-block;
+  position: absolute;
+  right:50%; */
+  position: absolute;
+  top: 40px;
+  right: 25vw;
+}

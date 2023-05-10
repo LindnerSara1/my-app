@@ -4,7 +4,7 @@ import convertToHebrewDate from "../../ConvertToHebrewDate";
 import iconProfile from "../../../Icons/profile.png";
 
 import "./singlePublicProject.css";
-import CircularStatic from "../../circularProgress/CircularStatic";
+import CircularStatic from "../../circularProgress/CircularStatic.jsx";
 const SinglePublicProject = ({ updateDetails, myProject, i }) => {
   const dd = myProject.dueDate;
   const navigate = useNavigate();
@@ -26,8 +26,7 @@ const SinglePublicProject = ({ updateDetails, myProject, i }) => {
     convertDate();
     setIsLoading(1);
   }, []);
-  useEffect(()=>{
-  },[dueDate])
+  useEffect(() => {}, [dueDate]);
   const toJion = () => {
     navigate(`/projects/${myProject.projectId}`);
   };
@@ -52,10 +51,12 @@ const SinglePublicProject = ({ updateDetails, myProject, i }) => {
         {isLoading ? <div id="theDueDate">{dueDate}</div> : ">"}
         {/* <div>{<ConvertToHebrewDate date={myProject.dueDate}/>}</div> */}
         <div>{myProject.taskStatus}</div>
-        <CircularStatic value={35}/>
-        <div id="buttonToJion" onClick={toJion}>
-          <img id="iconProfile" src={iconProfile} />
-          <div className="textJoin">הצטרף</div>
+        <div id="circularAndButtonToJoin">
+          <CircularStatic percentages={myProject.tasksDoneInPercentages} />
+          <div id="buttonToJion" onClick={toJion}>
+            <img id="iconProfile" src={iconProfile} />
+            <div className="textJoin">הצטרף</div>
+          </div>
         </div>
         {/* </div> */}
       </div>

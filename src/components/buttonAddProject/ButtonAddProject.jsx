@@ -12,10 +12,10 @@ const ButtonAddProject = () => {
     <>
       {/* <button > */}
       <div id="buttonAddProject" onClick={addNewProject}>
-        <span className="IconNewProjects">
+        <div className="IconNewProjects">
           <AddIcon />
-        </span>
-        <span className="wordsNewProjects"> פרויקט חדש</span>
+        </div>
+        <div className="wordsNewProjects"> פרויקט חדש</div>
       </div>
       {/* </button> */}
     </>

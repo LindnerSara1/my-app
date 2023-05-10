@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/User.context";
 import { login } from "../../api/login.api";
 import "./Login.css";
@@ -10,6 +11,7 @@ import '../signUp/SignUp.css'
 
 // import { ThemeProvider } from "@emotion/react";
 const Login = (props) => {
+  const { projectId, wantToJoin, setStateWantToJoin } = props;
   const { projectId, wantToJoin, setStateWantToJoin } = props;
   const navigate = useNavigate();
   const { setUser, user } = useContext(UserContext);
@@ -24,6 +26,10 @@ const Login = (props) => {
         navigate(-2);
       }
       // navigate(`/projects/${projectId}`);
+      if (set) {
+        navigate(-2);
+      }
+      // navigate(`/projects/${projectId}`);
       // }
       // else{
       //   navigate("/main/home");
@@ -32,14 +38,13 @@ const Login = (props) => {
       alert("אתה עדיין לא רשום במערכת");
       navigate("/");
     }
-  }
+  };
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const innerLogin = (e) => {
     e.preventDefault();
-    // console.log("about to sign in", username, password);
     _login(username, password);
   };
 
