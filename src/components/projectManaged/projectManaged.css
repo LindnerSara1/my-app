@@ -1,9 +1,36 @@
-#allProjectManaged{
-/* border:2px solid red; */
+#boxAllProjectManaged h1 {
+  /* position: relative; */
+  width: 70vw;
+  text-align: center;
+  /* margin-top: 15vh; */
+  position: relative;
+  margin-left: 30px;
+  font-size: 27px;
+  top:1vh;
+  /* justify-content: center; */
+  /* direction: rtl; */
 }
-#taskHeader{
-    display: inline-flex;
-    flex-direction: row;
-    border:2px solid red;
-    gap: 15px;
+#allProjectManaged {
+  position: relative;
+  top: -2vh;
+  /* left: 2%; */
+  overflow-x: auto;
+  height: 190px;
+  width: 74.5vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: '#ffffff';
+  gap: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+}
+#taskHeader {
+  display: inline-flex;
+  flex-direction: row;
+  border: 2px solid red;
+  gap: 15px;
+}
+#noneProject{
+  margin-right: 42%;
 }

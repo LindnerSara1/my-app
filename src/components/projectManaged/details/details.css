@@ -1,0 +1,88 @@
+#boxProjectManaged {
+  padding: 11px;
+  width: 250px;
+  /* width: 283px; */
+  height: 145px;
+  top: 502px;
+  border-radius: 21px;
+  border-color: gray;
+  border-style: none;
+  direction: rtl;
+  display: flex;
+  background: #f3f6ff;
+  font-style: normal;
+  font-size: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  /* font-size: 16px; */
+  line-height: 16px;
+  box-shadow: -1px 2px 6px rgba(40, 59, 154, 0.25);
+  cursor: pointer;
+  /* width: 319px;
+height: 178px; */
+}
+#projectManagedHeader {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  line-height: 25px;
+  flex-wrap: nowrap;
+  padding-top: 8px;
+}
+#boxProjectManaged:hover{
+  box-shadow: -1px 2px 6px rgba(40, 59, 154, 0.5);
+  background: rgba(35, 21, 53, 0.05);
+}
+#theGoalInPM {
+  font-size: 20px;
+  margin-left: 5px;
+}
+#theKategoryInPM {
+  font-size: 20px;
+}
+#thePersonNameForInPM {
+  font-size: 20px;
+}
+#theDueDateInPM {
+  padding-top: 14px;
+  font-size: 14px;
+  font-weight: 900;
+  color: rgba(250, 80, 90, 1);
+}
+#theGoalAndThePersonNameForInPM {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#buttonSendMessageText{
+  color: white;
+  font-size: 16px;
+  margin-top: 3px;
+  margin-right: 10px;
+  background-color: #2d61b7;
+}
+#buttonSendMessage{
+  display: flex;
+  flex-direction: row;
+  background: #2d61b7;
+  box-shadow: 0px 4px 20px rgb(40 59 154 / 25%);
+  border-radius: 20px;
+  align-items: center;
+  position: relative;
+  /* left: -135px; */
+  bottom: -3px;
+  z-index: 0.1;
+  width: 120px;
+  height: 34px;
+  cursor: pointer;
+}
+#circularAndButtonSendMessage{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 245px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 22px;
+}

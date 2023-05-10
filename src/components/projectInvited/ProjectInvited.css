@@ -1,0 +1,31 @@
+#boxAllProjectInvited {
+  background: rgb(234 232 236);
+  position: relative;
+  /* left: 2%; */
+  width: 76vw;
+  text-align: center;
+  top: -28px;
+  /* padding-left: 20px; */
+  padding-right: 23px;
+}
+#allProjectInvited {
+  display: flex;
+  overflow-x: auto;
+  /* height: 22.5vh; */
+  height: 190px;
+  gap: 20px;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* gap: 20px; */
+}
+#boxAllProjectInvited >h1 {
+  padding:  0px;
+  padding-top: 1px;
+  margin-bottom: 1px;
+  font-size: 27px;
+}
+#noneProject{
+  margin-right: 42%;
+}

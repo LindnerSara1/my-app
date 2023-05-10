@@ -1,0 +1,46 @@
+#boxOfInformation {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    top: -3.5vw;
+    right: -55%;
+    direction: rtl;
+}
+#usersInUseIcon {
+}
+#boxUserInUse,
+#boxOpenedBook,
+#boxClosedBook {
+    margin-bottom: 5%;
+}
+.infoUsersInUse,
+.infoOpenedBook,
+.infoClosedBook {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 43%;
+  text-align: center;
+}
+.infoUsersInUse {
+  color: #fa505a;
+}
+.infoOpenedBook {
+  color: #308015;
+}
+.infoClosedBook {
+  color: #2d61b7;
+}
+#usersInUseIcon,#OpenedBookIcon,#closedBookIcon{
+margin-left: 25%;
+width: 20%;
+height: 20%;
+}
+
+.sentence {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}

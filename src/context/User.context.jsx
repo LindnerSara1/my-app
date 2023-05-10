@@ -5,8 +5,7 @@ export const UserContext = React.createContext({});
 
 export const UserContextProvider = (props) => {
   const { children } = props;
-  const [user, setUser] = useState("");
-
+  const [user, setUser] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {

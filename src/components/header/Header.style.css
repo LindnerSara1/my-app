@@ -1,11 +1,57 @@
-menu{
-    display: flex;
-    flex-direction: row;
- 
- }
- menu > a{
-     margin: 10px;
-     text-decoration: none;
-     color: gray;
-     font-weight: 500;
- }
+menu {
+  display: flex;
+  flex-direction: row;
+}
+menu > a {
+  margin: 10px;
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+}
+#headerBox{
+    padding-top: 2%;
+    padding-right: 1%;
+}
+.boxHeader {
+  width: 45vw;
+  height: 140px;
+  margin-left: 100px;
+  margin-top: -244px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+#upperPart {
+  background: rgb(255, 255, 255);
+  /* background-size: 40%; */
+  position: fixed;
+  display: block;
+  width: 100vw;
+  height: 43vh;
+  z-index: 1;
+  /* padding-top: 2%;
+  padding-right: 2%;
+  padding-left: 2%; */
+}
+.usersInTheSystem {
+  color: rgba(250, 80, 90, 1);
+}
+.openBooks {
+  color: rgba(48, 128, 21, 1);
+}
+.BooksRead {
+  color: rgba(45, 97, 183, 1);
+}
+#Logo {
+  margin-left: 47%;
+  /* margin-top: 2.5%; */
+}
+#menuInHeader{
+  /* display: inline-block;
+  position: absolute;
+  right:50%; */
+  position: absolute;
+  top: 40px;
+  right: 25vw;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/User.context";
-import { signUp } from "../api/signup.api";
+import { UserContext } from "../../context/User.context";
+import { signUp } from "../../api/signup.api";
 import TextField from "@mui/material/TextField";
 import * as Yup from "yup";
 import {
@@ -13,8 +13,9 @@ import {
   ErrorMessage,
   useFormik,
 } from "formik";
-import { Button } from "@mui/material";
-
+import { Button, FormControl, ThemeProvider } from "@mui/material";
+import {theme} from './SignUp.style';
+import './SignUp.css';
 // const validate = (values) => {
 //   const errors = {};
 //   if (!values.firstName) {
@@ -133,6 +134,7 @@ const SignUp = () => {
       setSubmitting(false);
     },
   });
+ 
   return (
     // <>
     //   <h1>אנו שמחים שבחרת להצטרך אלינו, אנא הכנס את הפרטים שלך!!!</h1>
@@ -185,9 +187,13 @@ const SignUp = () => {
     //     <button type="submit">שמור</button>
     //   </form>
     // </>
-    <form onSubmit={formik.handleSubmit}>
+    <ThemeProvider theme={theme}>
+    <FormControl  id="form" onSubmit={formik.handleSubmit}>
+      <div id="header">!ברוך הבא</div>
+      <div id="startText">בוא נתחיל</div>
       <TextField
         id="userName"
+     
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
         name="userName"
         label="userName"
@@ -197,7 +203,6 @@ const SignUp = () => {
         error={formik.touched.userName && Boolean(formik.errors.userName)}
         helperText={formik.touched.userName && formik.errors.userName}
       />
-      <br></br>
       <TextField
         id="password"
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
@@ -209,7 +214,6 @@ const SignUp = () => {
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
-      <br></br>
       <TextField
         id="verifyPassword"
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
@@ -225,7 +229,6 @@ const SignUp = () => {
           formik.touched.verifyPassword && formik.errors.verifyPassword
         }
       />
-      <br></br>
       <TextField
         id="email"
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
@@ -237,7 +240,6 @@ const SignUp = () => {
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
       />
-      <br></br>
       <TextField
         id="phoneNumber"
         sx={{ backgroundColor: "white", borderRadius: 2, margin: 2 }}
@@ -249,11 +251,11 @@ const SignUp = () => {
         error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
         helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
       />
-      <br></br>
       <Button color="primary" variant="contained" type="submit">
         submit{" "}
       </Button>
-    </form>
+    </FormControl>
+    </ThemeProvider>
   );
 };
 

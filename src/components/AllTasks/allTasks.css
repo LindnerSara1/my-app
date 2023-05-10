@@ -1,0 +1,119 @@
+#HeaderInAllTasks {
+  padding-top: 3%;
+  background: rgba(35, 21, 53, 0.05);
+  padding-bottom: 0px;
+  width: 80vw;
+  height: 30vh;
+}
+#HeaderLogo {
+}
+#headerContent {
+  position: relative;
+  width: 100vw;
+  height: 6vh;
+  left: -8.5vw;
+  top: -47px;
+  text-align: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+}
+#goal {
+  font-size: 36px;
+}
+#personNameFor,
+#dueDate {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+}
+#dueDate {
+  color: rgba(250, 80, 90, 1);
+}
+#explainOnColor {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 4%;
+  margin-bottom: 1%;
+  /* width:300px */
+}
+.tasksCaught {
+  color: rgba(250, 80, 90, 1);
+}
+.tasksDone {
+  color: rgba(48, 128, 21, 1);
+}
+#caught,
+#done {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 115px;
+  justify-content: space-around;
+}
+
+.caughtCircle,
+.doneCircle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.caughtCircle {
+  background: #ffdbdd;
+  border: 0.2px solid #fa505a;
+}
+.doneCircle {
+  background: #c3fcd2;
+  border: 0.2px solid #308015;
+}
+#allTasks {
+  position: relative;
+  /* top: 45vh; */
+  overflow-y: auto;
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-content: top; */
+  justify-content: center;
+  align-content: flex-start;
+  /* padding-top: 30px; */
+  /* margin-top: 20vh; */
+  gap: 20px;
+  background-color: #ffffff;
+  height: 25vw;
+  padding-top: 30px;
+}
+#bottomPartInAllTAsks {
+  width: 75.5vw;
+  height: 11vh;
+  position: fixed;
+  bottom: 0px;
+  background: rgba(35, 21, 53, 0.05);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 0.9;
+  align-items: center;
+  padding-left: 3%;
+}
+#CircularStaticInAllTasks {
+  display: flex;
+  gap: 17px;
+  flex-direction: row-reverse;
+  padding-right: 80px;
+  height: 45px;
+}
+#buttons{
+  display: flex;
+  gap: 17px;
+  flex-direction: row-reverse;
+}
+
+
+/* ,#buttonAddNewProject */

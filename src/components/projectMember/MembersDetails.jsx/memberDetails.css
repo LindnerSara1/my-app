@@ -1,0 +1,96 @@
+#allDetailsTaskMD {
+  padding: 11px;
+  width: 250px;
+  height: 145px;
+  top: 502px;
+  /* left: 1086px; */
+  border-radius: 21px;
+  border-color: gray;
+  border-style: none;
+  direction: rtl;
+  display: flex;
+  /* background-color: #d7d1d1; */
+  background: #f3f6ff;
+  font-style: normal;
+  /* font-size: 30px; */
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  line-height: 16px;
+  text-align: right;
+  /* box-shadow: 0px 4px 20px rgba(40, 59, 154, 0.25); */
+  box-shadow: -1px 2px 6px rgba(40, 59, 154, 0.25);
+}
+#allDetailsTaskMD:hover{
+  padding: 17px;
+  width: 260px;
+  height: 155px;
+}
+#buttonIsDoneMD {
+  display: flex;
+  flex-direction: row;
+  background: #2d61b7;
+  box-shadow: 0px 4px 20px rgb(40 59 154 / 25%);
+  border-radius: 20px;
+  align-items: center;
+  position: relative;
+  /* left: -135px; */
+  bottom: -3px;
+  z-index: 0.1;
+  width: 108px;
+  height: 34px;
+  cursor: pointer;
+}
+
+#iconV {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  color: #ffffff;
+  background-color: #2d61b7;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+}
+.textIsDone {
+  color: white;
+  font-size: 16px;
+  margin-top: 3px;
+  margin-right: 10px;
+}
+#taskHeaderInProjectMemberMD {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  line-height: 25px;
+  flex-wrap: nowrap;
+}
+#theKategoryMD {
+  font-size: 20px;
+}
+#theGoalMD {
+  font-size: 20px;
+}
+#thePersonNameForMD {
+  font-size: 20px;
+}
+#theDueDateMD {
+  font-size: 14px;
+  font-weight: 900;
+  color: rgba(250, 80, 90, 1);
+}
+#theGoalAndThePersonNameForMD {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:5px;
+}
+#circularAndButtonIsDone{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 245px;
+  justify-content: space-between;
+  /* z-index: 0.7; */
+}

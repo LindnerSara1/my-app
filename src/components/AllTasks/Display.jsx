@@ -1,14 +1,49 @@
-import {
-  Table,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
 import "./display.css";
+import Select from "./select/Select";
+import { useContext, useEffect, useState } from "react";
+import OkSelect from "./OkSelect";
+import {
+  NEW_TASK,
+  TASKS_CAUGHT,
+  TASKS_DONE,
+} from "../../constant/colorConstant";
+import { UserContext } from "../../context/User.context";
 const Display = (props) => {
-  const task = props.myTask;
-  
+  const {
+    projectId,
+    task,
+    updateTask,
+    allTasks,
+    setAllTasks,
+    updateInListToDo,
+  } = props;
+  const { setUser, user } = useContext(UserContext);
+  const [openSelect, setOpenSelect] = useState(false);
+  const [savedInDb, setSavedInDb] = useState(false);
+  const [isRender, setIsRender] = useState(true);
+  // const updateTaskInDisplay = (task) => {
+  //   console.log("in updateTaskInDisplay task");
+  //   console.log(task);
+  //   const index = allTasks.findIndex((t) => t.taskId === task.taskId);
+  //   const copyAllTasks = [...allTasks];
+  //   copyAllTasks[index].userId = task.userId;
+  //   copyAllTasks[index].taskStatusId = task.taskStatusId;
+  //   console.log("ok");
+  //   setIsRender(task.taskStatusId);
+  //   setAllTasks([...copyAllTasks]);
+  // };
+  const updateInDisplay = (newTask) => updateTask(newTask);
+  const dispatchToListToDo = (newTask) => {
+    updateInListToDo(newTask);
+  };
+  const typeColor = {
+    1: NEW_TASK,
+    2: TASKS_CAUGHT,
+    3: TASKS_DONE,
+  };
+  useEffect(() => {
+    console.log(user.userId, user.userName, task.managerId);
+  }, []);
   return (
     <>
       {/* <div id="#displayTask">
@@ -18,15 +53,40 @@ const Display = (props) => {
         <div>{myTask.taskStatus}</div>
         <div>{myTask.dueDate}</div>
       </div> */}
-      <TableContainer sx={{width: 200}}>
-        <Table>
-            <TableHead></TableHead>
-            <TableRow>
-                <TableCell>{task.kategoryValue}</TableCell>
-                <TableCell>{task.taskStatus}</TableCell>
-            </TableRow>
-        </Table>
-    </TableContainer>
+      <div
+        id="singleTask"
+        onClick={() => {
+          if (task.taskStatusId == 1) {
+            setOpenSelect(true);
+          }
+        }}
+        style={{
+          backgroundColor: typeColor[task.taskStatusId],
+          padding: 3,
+          borderRadius: 21,
+        }}
+      >
+        {openSelect && (
+          <Select
+            projectId={projectId}
+            task={task}
+            openSelect={openSelect}
+            setOpenSelect={setOpenSelect}
+            savedInDb={savedInDb}
+            setSavedInDb={setSavedInDb}
+            updateInDisplay={updateInDisplay}
+            dispatchToListToDo={dispatchToListToDo}
+          />
+        )}
+        {/* {savedInDb && (
+          <OkSelect savedInDb={savedInDb} setSavedInDb={setSavedInDb} />
+        )} */}
+        <div id="taskKategory">{task.kategoryValue}</div>
+        {user.userId === task.managerId && (
+          <div id="taskStatus">{task.user}</div>
+        )}
+        {/* <div id="taskStatus">{isRender && task.taskStatus}</div> */}
+      </div>
     </>
   );
 };

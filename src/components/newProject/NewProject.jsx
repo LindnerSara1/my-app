@@ -1,11 +1,10 @@
 // import Checkbox from '/lib/checkbox/Checkbox';
 
-import React, { useState, useContext } from "react";
-import { KategoriesContext } from "../../context/Kategories.context";
+import React, { useState, useEffect, useContext } from "react";
+// import { KategoriesContext } from "../../context/Kategories.context";
 import { UserContext } from "../../context/User.context";
 import * as projectApi from "../../api/project.api";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { getKategories } from "../../api/kategories.api";
 // import "./NewProject.css";
 import {
@@ -22,7 +21,8 @@ import {
   Button,
 } from "@mui/material";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { useFormik } from "formik";
+import "./NewProject.css";
+// import { useFormik } from "formik";
 const NewProject = () => {
   // const { kategories } = useContext(KategoriesContext);
   const { user } = useContext(UserContext);
@@ -39,15 +39,15 @@ const NewProject = () => {
   });
   const goals = [
     "לעילוי נשמת",
-    "לרפואה",
-    "להצלחה",
+    "לרפואת",
+    "להצלחת",
     "לזיווג הגון",
     "לזרע של קיימא",
     "למטרה אחרת",
   ];
   const addProject = async (e) => {
     e.preventDefault();
-    const res = await projectApi.addNewProject(
+    const projectId = await projectApi.addNewProject(
       newProject.managerId,
       newProject.dueDate.toJSON(),
       newProject.startDate.toJSON(),
@@ -57,8 +57,8 @@ const NewProject = () => {
       newProject.goal,
       newProject.personNameFor
     );
-    console.log(res);
-    navigate("/main");
+    // console.log(projectId);
+    navigate(`/addProjectMember/${projectId}`);
   };
   const [kategories, setKategories] = useState([{}]);
   const getKategoriesFromServer = async () => {
@@ -71,7 +71,11 @@ const NewProject = () => {
     }
   };
   useEffect(() => {
-    getKategoriesFromServer();
+    if (!user) {
+      navigate("/login");
+    } else {
+      getKategoriesFromServer();
+    }
   }, []);
 
   const handleStartDateChange = (newDate) => {
@@ -88,9 +92,9 @@ const NewProject = () => {
   };
 
   return (
-    <Box>
+    <Box className="Box">
       <h1>new Project!</h1>
-      {/* <FormControl class="form"> */}
+      {/* <FormControl className="form"> */}
       <FormControl>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DesktopDatePicker
@@ -112,7 +116,7 @@ const NewProject = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <TextField
+        {/* <TextField
           required={true}
           id="outlined-basic"
           label="שם הפרויקט"
@@ -121,10 +125,10 @@ const NewProject = () => {
           onChange={(e) => {
             setNewProject({ ...newProject, projectName: e.target.value });
           }}
-        ></TextField>
-        {/* <label class="label">שם הפרויקט</label>
+        ></TextField> */}
+        {/* <label className="label">שם הפרויקט</label>
         <input
-          class="input"
+          className="input"
           placeholder={"project name"}
           value={newProject.projectName}
           onChange={(e) => {
@@ -160,9 +164,9 @@ const NewProject = () => {
           </Select>
         </FormControl>
 
-        {/* <label class="label">בחר אופן חלוקה</label>
+        {/* <label className="label">בחר אופן חלוקה</label>
         <select
-          class="select"
+          className="select"
           value={newProject.kategoryName}
           onChange={(e) => {
             const id = kategories.find(
@@ -197,9 +201,9 @@ const NewProject = () => {
             ))}
           </Select>
         </FormControl>
-        {/* <label class="label">מטרת הלימוד</label>
+        {/* <label className="label">מטרת הלימוד</label>
         <select
-          class="select"
+          className="select"
           value={newProject.goal}
           onChange={(e) => {
             setNewProject({ ...newProject, goal: e.target.value });
@@ -218,17 +222,17 @@ const NewProject = () => {
             setNewProject({ ...newProject, personNameFor: e.target.value });
           }}
         ></TextField>
-        {/* <label class="label">הלימוד לזכות</label> */}
+        {/* <label className="label">הלימוד לזכות</label> */}
         {/* <input
-        class="input"
+        className="input"
           value={newProject.personNameFor}
           onChange={(e) => {
             setNewProject({ ...newProject, personNameFor: e.target.value });
           }}
         ></input> */}
-        {/* <label class="label">תאריך יעד</label>
+        {/* <label className="label">תאריך יעד</label>
         <input
-          class="input"
+          className="input"
           type="date"
           value={newProject.dueDate}
           onChange={(e) => {
@@ -236,9 +240,9 @@ const NewProject = () => {
           }}
         /> */}
 
-        {/* <label class="label">תאריך התחלה</label>
+        {/* <label className="label">תאריך התחלה</label>
         <input
-          class="input"
+          className="input"
           type="date"
           value={newProject.startDate}
           onChange={(e) => {
@@ -256,9 +260,9 @@ const NewProject = () => {
             setNewProject({ ...newProject, quantity: e.target.value });
           }}
         ></TextField>
-        {/* <label class="label">כמות ספרים</label>
+        {/* <label className="label">כמות ספרים</label>
         <input
-          class="input"
+          className="input"
           type={"number"}
           value={newProject.quantity}
           onChange={(e) => {
@@ -269,7 +273,7 @@ const NewProject = () => {
           }}
         ></input> */}
         {/* <label>האם ברצונך לאפשר ללימוד להיות ציבורי?</label>
-        <input class="input" type="checkbox" value={true}></input>
+        <input className="input" type="checkbox" value={true}></input>
         <br></br>
         <label>הכנס את המילים של חברי הקבוצה</label>
         <input type="email"></input>

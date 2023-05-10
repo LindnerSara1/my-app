@@ -1,4 +1,32 @@
-#displayTask{
-    display: flex;
-    flex-direction: row;
+/* #displayTask{
+        display: flex;
+        flex-direction: row;
+    } */
+#singleTask {
+  /* position: absolute; */
+  width: 157px;
+  height: 70px;
+  /* left: 869px;
+top: 341px; */
+  background: #d9f3dc;
+  border-radius: 21px;
+  /* filter: drop-shadow(0px 4px 10px rgba(53, 72, 139, 0.41)); */
+  box-shadow: -1px 2px 6px rgba(40, 59, 154, 0.25);
+  /* justify-content: center; */
+  text-align: right;
+  font-style: normal;
+  
+}
+#taskKategory {
+    padding-right: 10px;
+    padding-top: 5px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+}
+#taskStatus {
+    padding-right: 10px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
 }

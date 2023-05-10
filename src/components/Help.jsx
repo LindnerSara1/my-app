@@ -1,6 +1,13 @@
 import React from "react";
-
-const Home = () => {
-  return <div>Home!</div>;
+import { useParams } from "react-router-dom";
+const Help = () => {
+  const { projectId } = useParams();
+  console.log(projectId);
+  return (
+    <>
+      <div>help!</div>
+      <div>{projectId}</div>
+    </>
+  );
 };
-export default Home;
+export default Help;

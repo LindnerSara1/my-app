@@ -1,3 +1,35 @@
-#allProjectMember{
-    border:2px solid green;
+#boxProjectMember {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 345px;
+  /* height: 100vh; */
+  /* right: -1200px; */
+  /* left: 1482px; */
+  /* top: -145px; */
+  /* top:-900px; */
+  /* overflow-y: auto; */
+  height: 100vh;
+  background-color: #231535;
+  /* align-items: center; */ 
+}
+ #allProjectMember {
+  /* height: 71vh; */
+  height: 79.9vh;
+  overflow-y: auto;
+  display: flex;
+  gap: 26px;
+  flex-direction: column;
+  align-items: center;
+  /* padding-top: 200px; */
+  position: relative;
+  /* padding-top: 1429px; */
+  flex-wrap: nowrap;
+
+}
+#boxProjectMember h1{
+  color: #fff;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
